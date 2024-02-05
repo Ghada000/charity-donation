@@ -1,19 +1,18 @@
-const express = require('express')
-const app = express()
+// index.js
+const express = require('express');
+const bodyParser = require('body-parser');
+const medicamentRoutes = require('../routes/medicamentRoute');
 
+const app = express();
+const PORT = 5000;
 
-const route1 = require("../routes/blood.js");
-const route2 = require("../routes/clothes.js");
-const route3 = require("../routes/hair.js");
-const route3 = require("../routes/medicament.js");
-app.use("/blood", verifyToken, route1)
-app.use("/clothes", route2)
-app.use("/hair", route3)
-app.use("/medicament", route3)
+// Middleware for parsing JSON requests
+app.use(bodyParser.json());
 
+// Use the medicament routes
+app.use('/medicaments', medicamentRoutes);
 
-
-// respond with "hello world" when a GET request is made to the homepage
-app.get('/', (req, res) => {
-  res.send('hello world')
-})
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
