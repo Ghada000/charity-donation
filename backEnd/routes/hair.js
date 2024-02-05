@@ -1,3 +1,4 @@
+// hair.js
 const express = require('express');
 const controller = require('../controllers/hair.js');
 const routes = express.Router();
