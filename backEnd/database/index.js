@@ -3,7 +3,7 @@ const config = {
     host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'your database name'
+    database: 'donation'
   };
 
 const connection = mysql.createConnection(config)
