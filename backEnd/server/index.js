@@ -1,10 +1,15 @@
+// app.js
+
 const express = require('express');
-const clothesRoutes = require('../routes/clothes.js');
 
 const app = express();
 
 app.use(express.json());
 
+const bloodRoutes = require('../routes/bloodroute');
+const clothesRoutes = require('../routes/clothes.js');
+
+app.use('/blood', bloodRoutes);
 app.use('/clothes', clothesRoutes);
 
 const PORT = process.env.PORT || 5000;
