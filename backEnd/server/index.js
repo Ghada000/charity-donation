@@ -1,8 +1,14 @@
 
+
 // index.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const medicamentRoutes = require('../routes/medicamentRoute');
+
+// app.js
+
+
+
 
 const app = express();
 
@@ -16,12 +22,16 @@ app.use('/medicaments', medicamentRoutes);
 // Start the server
 
 
-const clothesRoutes = require('../routes/clothes.js');
+
 
 
 
 app.use(express.json());
 
+const bloodRoutes = require('../routes/bloodroute');
+const clothesRoutes = require('../routes/clothes.js');
+
+app.use('/blood', bloodRoutes);
 app.use('/clothes', clothesRoutes);
 
 const PORT = process.env.PORT || 5000;
