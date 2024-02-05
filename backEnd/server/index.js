@@ -1,19 +1,15 @@
-const express = require('express')
-const app = express()
+// app.js
 
+const express = require('express');
+const bloodRoutes = require('../routes/bloodroute');
 
-const route1 = require("../routes/blood.js");
-const route2 = require("../routes/clothes.js");
-const route3 = require("../routes/hair.js");
-const route3 = require("../routes/medicament.js");
-app.use("/blood", verifyToken, route1)
-app.use("/clothes", route2)
-app.use("/hair", route3)
-app.use("/medicament", route3)
+const app = express();
 
+app.use(express.json());
 
+app.use('/blood', bloodRoutes);
 
-// respond with "hello world" when a GET request is made to the homepage
-app.get('/', (req, res) => {
-  res.send('hello world')
-})
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
