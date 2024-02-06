@@ -1,6 +1,4 @@
-
-
-
+// Navbar.jsx
 import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JavaScript
@@ -37,17 +35,13 @@ function Navbar(props) {
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Donation
               </a>
-              
               <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="hair" onClick={()=>{props.set("Hair")}}>Hair donation</a></li>
-                <li><a className="dropdown-item" href="Blood"onClick={()=>{props.set("Blood")}}>Blood donation</a></li>
-                <li><a className="dropdown-item" href="Clothes" onClick={()=>{props.set("Clothes")}}>Clothes</a></li>
-                <li><a className="dropdown-item" href="Medicaments" onClick={()=>{props.set("Medicaments")}}>Medicaments</a></li>
-            
-            
+                <li><a className="dropdown-item" href="#" onClick={() => props.changeView("Hair")}>Hair donation</a></li>
+                <li><a className="dropdown-item" href="#" onClick={() => props.changeView("Blood")}>Blood donation</a></li>
+                <li><a className="dropdown-item" href="#" onClick={() => props.changeView("Clothes")}>Clothes</a></li>
+                <li><a className="dropdown-item" href="#" onClick={() => props.changeView("Medicaments")}>Medicaments</a></li>
               </ul>
             </li>
-            
           </ul>
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
