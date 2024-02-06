@@ -5,7 +5,8 @@ import React from 'react'
 // import Footer from './components/Footer'
 // import Medicaments from './components/Medicaments'
 // import Clothes from './components/Clothes'
-import Blood from './components/Blood'
+// import Blood from './components/Blood'
+import Hair from './components/Hair'
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Home/>
         <Footer/> */}
    
-   <Blood/>
+   {/* <Blood/> */}
+   <Hair/>
 
 
     </div>
