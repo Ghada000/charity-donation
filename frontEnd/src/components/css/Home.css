@@ -17,6 +17,7 @@
     justify-content: center;
     justify-items: center;
     flex-wrap: wrap;
+    margin-top: 100px;
 }
 
 .cardDonation{
@@ -27,7 +28,12 @@
     flex-direction: column;
     width: 350px;
     height: 400px;
-    background-color: rgb(176, 245, 245);
+    box-shadow: 5px 5px 10px rgb(106, 106, 106) ;
+    border-radius:10px;
+    transition: transform 0.3s;
+}
+.cardDonation:hover {
+    transform: scale(0.98);
 }
 
 .carddimg{
@@ -44,6 +50,39 @@
 }
 
 .TopOne{
-    font-size: 18px;
-    color: rgb(46, 44, 44);
+   background-color: rgb(100, 98, 98);
+    width: 80px;
+    height: 2px;
+    margin-top: 20px;
 }
+
+.txtDonation{
+    font-size: 16px;
+    color: rgb(79, 75, 75);
+    margin-left: 30px;
+    margin-right: 10px;
+    margin-top: 30px;
+}
+
+.donn{
+    font-size: 45px;
+    margin-left:600px;
+    margin-top: 100px;
+    
+}
+
+.nnn {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    animation: pulse 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes pulse {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.05);
+    }
+  }
+  
+  

@@ -2,13 +2,16 @@
 // export default Home;
 import React from 'react';
 import './css/Home.css'
+import { FaMedal } from "react-icons/fa";
+import data from '../data.json'
+
 function Home() {
   return (
     <div>
     <div className='nimg'>
       <header  style={{ 
         
-        backgroundImage: "url(https://c4.wallpaperflare.com/wallpaper/482/830/548/happiness-children-smile-heat-wallpaper-preview.jpg)", 
+        backgroundImage: "url(https://static.ffx.io/images/$width_620%2C$height_349/t_crop_fill/q_86%2Cf_auto/e7ce6425ea128fb54abeb0b4e5191ef57e0944f0)", 
         backgroundSize: 'cover', 
         height: '673px',
         boxShadow: 'inset rgb(0, 0, 0) 0px 126px 494px',
@@ -19,21 +22,28 @@ function Home() {
 
       </header>
       <div className='bodyimg'>
-        <h1>drstrjdtfkygliuhmiojpmhglfykutdjyrshdtkfylgumhijolkj</h1>
+        <h1 className='nnn'>Let's Build The World Together</h1>
         <br/>
         
-        <h4>hsks hxkxj xjxix xjkaxxl xakxal xaklm xaklmx xa,klmx xna,kl xa n,kl</h4>        
+        <h4></h4>        
       </div>
     </div>
     <div>
-      <h1>Top donaitors </h1>
+      <h1 className='donn'>Top donaitors </h1>
       <div className='listDonation'>
-      <div className='cardDonation'>
-        <img  className='carddimg' src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1448711260.1707177600&semt=ais" alt="" />
-        <p className='NameDonation' >Badis Boughanmi</p >
-        <p className='TopOne'> Top One </p>
+        {data.map((e,i)=>{
+        return (   
+          <div className='cardDonation'>
+        <img  className='carddimg' src={e.img} alt="" />
+        <p className='NameDonation' >{e.name}</p >
+        <FaMedal fontSize={25} color='yellow'/>
+        <div className='TopOne'>  </div>
+        <p className='txtDonation'>{e.description} </p>
       </div>
+        )
+      })}
       </div>
+      
     </div>
     </div>
   );
