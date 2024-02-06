@@ -14,7 +14,8 @@ import ChatBot from 'react-simple-chatbot'
 
 function App() {
   const [menuView, setMenuView] = useState(false);
-  const [view, setView] = useState('default')
+  const [view, setView] = useState('default');
+
   const toggleMenu = () => {
     setMenuView(!menuView);
   };
@@ -61,17 +62,14 @@ function App() {
             switchView('Donation');
             return 'You can find Donation items by clicking on "Donation" in the navbar.';
           } else if (lowerCaseInput.includes('donation impact')) {
-            // Assuming 'donation impact' is another option you want to handle
-            // You need to add a switchView statement for it if necessary
+
             return 'You can find Donation Impact items by clicking on "Donation Impact" in the navbar.';
           } else {
             return `I'm not sure how to help with that. Is there anything else you'd like to know?`;
           }
-        } else{
-          return
         }
       },
-      trigger: '4',
+      trigger: '3',
     },
   ];
   
@@ -95,25 +93,15 @@ function App() {
   };
   return (
     <div>
-        <Navbar/>
-        <Home/>
-        <ThemeProvider theme={theme}>
-                <ChatBot
- 
-                    headerTitle="ChatBot"
-                    steps={steps}
-                    {...config}
- 
-                />
-            </ThemeProvider>
-  
-        <Footer/>
-
-   
-
-
+      <Navbar />
+      <Home />
+      <ThemeProvider theme={theme}>
+        <ChatBot headerTitle="ChatBot" steps={steps} {...config} />
+      </ThemeProvider>
+      <Footer />
     </div>
-  )
+  );
 }
+  
 
 export default App
