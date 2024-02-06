@@ -1,7 +1,7 @@
 const model = require("../models/hair");
 
 module.exports = {
-  getAlldata: (req, res) => {
+  getAllData: (req, res) => {
     model.getAll((err, data) => {
       if (err) {
         res.status(500).send(err);
@@ -10,9 +10,9 @@ module.exports = {
       }
     });
   },
-  addOnedata: (req, res) => {
-    const newdata = req.body;
-    model.addOne(newdata, (err, results) => {
+  addOneData: (req, res) => {
+    const newData = req.body;
+    model.addOne(newData, (err, results) => {
       if (err) {
         res.status(500).send(err);
       } else {
@@ -20,7 +20,7 @@ module.exports = {
       }
     });
   },
-  update: (req, res) => {
+  updateData: (req, res) => {
     const id = req.params.id;
     const updatedData = req.body;
 
@@ -32,8 +32,9 @@ module.exports = {
       }
     });
   },
-  DELETE: (req, res) => {
-    model.DELETE(req.params.id, (err, results) => {
+  deleteData: (req, res) => {
+    const id = req.params.id;
+    model.delete(id, (err, results) => {
       if (err) {
         res.status(500).send(err);
       } else {

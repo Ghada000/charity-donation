@@ -5,7 +5,7 @@ const config = {
     password: 'root',
     database: 'donation'
   };
-  const pool = mysql.createPool(config);
+
 const connection = mysql.createConnection(config)
 connection.connect((err)=>{
     if (err) {
@@ -20,4 +20,4 @@ connection.connect((err)=>{
 
 
 
-module.exports = pool.promise(),connection;
+module.exports= connection;
