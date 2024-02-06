@@ -94,7 +94,6 @@ function App() {
    
   // Set some properties of the bot
   const config = {
-      // botAvatar: "img.png",
       floating: true,
   };
   return (
