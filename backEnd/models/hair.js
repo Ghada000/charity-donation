@@ -1,4 +1,4 @@
-const connection = require("../database/index.js");
+const connection = require("../database/index");
 
 module.exports = {
   DELETE: (id, callback) => {
