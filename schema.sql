@@ -100,8 +100,7 @@ CREATE TABLE IF NOT EXISTS `donation`.`users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`user_id`),
-  UNIQUE INDEX `email` (`email` ASC) VISIBLE)
+  PRIMARY KEY (`user_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;

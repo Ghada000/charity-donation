@@ -15,9 +15,7 @@ app.use('/medicaments', medicamentRoutes);
 app.use('/hair', hairRoutes);
 app.use('/api', userRoutes); // Use user routes
 
-app.post('/api/send-welcome-email', (req, res) => {
-  // Implementation of sending welcome email
-});
+
 
 const PORT = process.env.PORT || 5000;
 
