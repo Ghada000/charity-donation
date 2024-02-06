@@ -73,16 +73,33 @@
 
 .nnn {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    animation: pulse 2s ease-in-out infinite alternate;
+    animation: color-change 10s infinite alternate;
   }
   
-  @keyframes pulse {
-    from {
-      transform: scale(1);
+  @keyframes color-change {
+    0% {
+      color: #FF5733; /* Starting color */
     }
-    to {
-      transform: scale(1.05);
+    25% {
+      color: #33FF57; /* First transition color */
+    }
+    50% {
+      color: #5733FF; /* Second transition color */
+    }
+    75% {
+      color: #FFC300; /* Third transition color */
+    }
+    100% {
+      color: #FF5733; /* Back to starting color */
     }
   }
   
+  
+  .nnnn {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 24px; /* Adjust font size as needed */
+    color: #928e8e; /* Text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding a shadow effect */
+    /* You can adjust the shadow color, blur radius, and offset as needed */
+  }
   

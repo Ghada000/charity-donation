@@ -24,8 +24,8 @@ function Home() {
       <div className='bodyimg'>
         <h1 className='nnn'>Let's Build The World Together</h1>
         <br/>
-        
-        <h4></h4>        
+        <br/>
+        <h4 className='nnnn'>“Remember that the happiest people are not those getting more, but those giving more.</h4>        
       </div>
     </div>
     <div>
