@@ -25,6 +25,7 @@ app.use(bodyParser.json());
 
 app.use(express.json());
 
+
 const bloodRoutes = require('../routes/bloodroute.js');
 const clothesRoutes = require('../routes/clothes.js');
 const medicamentRoutes = require('../routes/medicamentRoute');
