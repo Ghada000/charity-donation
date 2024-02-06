@@ -1,2 +1,105 @@
+.nimg { position: relative;
 
+}
+
+.bodyimg {
+    position: absolute;
+    top: 240px  ;
+    left: 200px;
+    color: white;
+    font-weight :700 ;
+    width:600px ;
+}
+
+.listDonation{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
+
+.cardDonation{
+    display: flex;
+    gap: 10px;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    width: 350px;
+    height: 400px;
+    box-shadow: 5px 5px 10px rgb(106, 106, 106) ;
+    border-radius:10px;
+    transition: transform 0.3s;
+}
+.cardDonation:hover {
+    transform: scale(0.98);
+}
+
+.carddimg{
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+.NameDonation{
+    font-size: 18px;
+    color: rgb(46, 44, 44);
+    font-weight: 600;
+}
+
+.TopOne{
+   background-color: rgb(100, 98, 98);
+    width: 80px;
+    height: 2px;
+    margin-top: 20px;
+}
+
+.txtDonation{
+    font-size: 16px;
+    color: rgb(79, 75, 75);
+    margin-left: 30px;
+    margin-right: 10px;
+    margin-top: 30px;
+}
+
+.donn{
+    font-size: 45px;
+    margin-left:600px;
+    margin-top: 100px;
+    
+}
+
+.nnn {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    animation: color-change 10s infinite alternate;
+  }
+  
+  @keyframes color-change {
+    0% {
+      color: #FF5733; /* Starting color */
+    }
+    25% {
+      color: #33FF57; /* First transition color */
+    }
+    50% {
+      color: #5733FF; /* Second transition color */
+    }
+    75% {
+      color: #FFC300; /* Third transition color */
+    }
+    100% {
+      color: #FF5733; /* Back to starting color */
+    }
+  }
+  
+  
+  .nnnn {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 24px; /* Adjust font size as needed */
+    color: #928e8e; /* Text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding a shadow effect */
+    /* You can adjust the shadow color, blur radius, and offset as needed */
+  }
   
