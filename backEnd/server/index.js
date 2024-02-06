@@ -28,7 +28,8 @@ app.use(cors())
 
 app.use(express.json());
 
-const bloodRoutes = require('../routes/bloodroute');
+
+const bloodRoutes = require('../routes/bloodroute.js');
 const clothesRoutes = require('../routes/clothes.js');
 const medicamentRoutes = require('../routes/medicamentRoute');
 const route3 = require("../routes/hair.js");
