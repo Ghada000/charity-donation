@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-// App.js
-import React from 'react'
-=======
-
->>>>>>> 1569d4fed839e52a405a56063d023cab9d0c0446
-
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Footer from './components/Footer'
@@ -13,7 +6,6 @@ import Clothes from './components/Clothes'
 import Blood from './components/Blood'
 import Hair from './components/Hair'
 import React,{useState} from 'react'
-
 
 function App() {
 
@@ -25,13 +17,6 @@ function App() {
 
   return (
     <div>
-<<<<<<< HEAD
-  
-        <Navbar/>
-        <Home/>
-        <Footer/>
-        
-=======
         <Navbar changeView={changeView} set={setTerm}/>
     {view==="Home" && <Home   changeView={changeView}/>}
     {view==="Hair" && <Hair  term={term} changeView={changeView}/>}
@@ -47,7 +32,6 @@ function App() {
    
 
 
->>>>>>> 1569d4fed839e52a405a56063d023cab9d0c0446
     </div>
   )
 }
