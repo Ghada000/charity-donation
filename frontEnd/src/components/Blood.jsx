@@ -21,7 +21,7 @@ function Blood() {
     };
 
     const handleAddBlood = () => {
-        axios.post('http://localhost:5000/blood/add', {
+        axios.post('http://localhost:5000/blood/', {
             blood_type: newBloodType,
             image_url: newImageUrl
         })
@@ -38,7 +38,7 @@ function Blood() {
     };
 
     const handleDeleteBlood = (id) => {
-        axios.delete(`http://localhost:5000/blood/delete/${id}`)
+        axios.delete(`http://localhost:5000/blood/${id}`)
             .then(function (response) {
                 console.log(response);
                 fetchData();
@@ -48,16 +48,7 @@ function Blood() {
             });
     };
 
-    const handleUpdateBlood = (id, newData) => {
-        axios.put(`http://localhost:5000/blood/update/${id}`, newData)
-            .then(function (response) {
-                console.log(response);
-                fetchData();
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    };
+   
 
     return (
         <div>
