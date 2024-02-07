@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JavaScript
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './css/Navbar.css';
-import Login from '../components/login'; // Import the Login component
+import Login from '../components/login';
 
 function Navbar(props) {
-  // Initialize Bootstrap components once the component is mounted
   useEffect(() => {
     // Bootstrap components initialization
   }, []);
@@ -13,11 +12,9 @@ function Navbar(props) {
   const [view, setView] = useState(null);
 
   const handleLoginClick = () => {
-    // Set the view state to 'Login'
     setView('Login');
   };
 
-  // Render the Login component if the view state is 'Login'
   if (view === 'Login') {
     return <Login />;
   }
