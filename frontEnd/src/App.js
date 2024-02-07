@@ -69,7 +69,7 @@ function App() {
             switchView('Donation');
             return 'You can find Donation items by clicking on "Donation" in the navbar.';
           } else if (lowerCaseInput.includes('donation impact')) {
-
+            switchView('Donation Impact');
             return 'You can find Donation Impact items by clicking on "Donation Impact" in the navbar.';
           } else {
             return `I'm not sure how to help with that. Is there anything else you'd like to know?`;

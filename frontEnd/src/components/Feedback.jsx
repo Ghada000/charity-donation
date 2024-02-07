@@ -114,7 +114,7 @@ function Feedback() {
         {data.map((ele) => (
           <div className="card my-3 col-3 p-3 rounded-4 shadow bg-body-tertiary" key={ele.id}>
             <p>{ele.user}</p>
-            <h3>{ele.email}</h3>
+            <h6>{ele.email}</h6>
             <div>
               {[...Array(ele.rating)].map((_, index) => (
                 <img alt="Star" width={'20px'} height={'20px'} key={index} src={img1} />
