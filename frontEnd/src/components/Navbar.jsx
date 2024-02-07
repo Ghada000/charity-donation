@@ -35,7 +35,7 @@ function Navbar(props) {
               <a className="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">FAQ</a>
+              <a className="nav-link" href="#"  onClick={() => props.changeView("FAQ")}>FAQ</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">Feedbacks</a>
