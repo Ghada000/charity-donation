@@ -1,6 +1,6 @@
 // Feedback.js
 import React, { useState } from 'react';
-import Data from './dummyData.json';
+import Data from '../dummyData.json';
 import img1 from '../icones/star.png';
 import './css/FeedBack.css';
 
