@@ -20,15 +20,27 @@ const FAQ = () => {
   const faqData = [
     {
       question: "How can I donate?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit risus vel felis condimentum, id porta eros luctus."
+      answer: "You can donate by visiting our website and clicking on the 'Donate' button. From there, you can choose the amount you'd like to donate and complete the payment process securely."
     },
     {
       question: "Is my donation tax-deductible?",
-      answer: "Nulla facilisi. Nullam ut felis at lorem varius ullamcorper a sed ex. Morbi volutpat risus et purus scelerisque, id eleifend ligula volutpat."
+      answer: "Yes, your donation is tax-deductible. We are a registered non-profit organization, and all donations made to us are eligible for tax deductions according to local tax laws."
     },
     {
       question: "Can I donate anonymously?",
-      answer: "Proin bibendum arcu quis orci semper, sit amet tristique est blandit. Nam eget pharetra risus. Nullam auctor, odio eget consequat tempor, nulla nisl vestibulum velit, vitae convallis nibh libero ut felis."
+      answer: "Yes, you can donate anonymously if you prefer. Simply indicate your preference when making the donation, and we will ensure that your identity remains confidential."
+    },
+    {
+      question: "How do I volunteer for events?",
+      answer: "Volunteering for events is easy! Simply visit our website's volunteer page and fill out the volunteer form. We'll get in touch with you regarding upcoming events and opportunities."
+    },
+    {
+      question: "Where does my donation go?",
+      answer: "Your donation goes directly towards supporting our cause and initiatives. We allocate funds to various projects, programs, and initiatives aimed at making a positive impact in our community."
+    },
+    {
+      question: "How can I get involved in fundraising?",
+      answer: "Getting involved in fundraising is a great way to support our organization! You can start by organizing your own fundraising event, participating in our fundraising campaigns, or reaching out to us to explore collaboration opportunities."
     },
     // Add more FAQ items as needed
   ];

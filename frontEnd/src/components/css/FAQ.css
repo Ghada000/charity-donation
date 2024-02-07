@@ -1,20 +1,27 @@
 .faq {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    padding: 40px 20px;
   }
   
   .faq h2 {
-    font-size: 28px;
+    font-size: 36px;
     color: #333;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
   
   .faq-item {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+    transition: transform 0.3s ease;
+  }
+  
+  .faq-item:hover {
+    transform: translateY(-5px);
   }
   
   .question-wrapper {
@@ -23,7 +30,6 @@
     align-items: center;
     padding: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
   }
   
   .question-wrapper:hover {
@@ -31,14 +37,19 @@
   }
   
   .question-wrapper h3 {
-    font-size: 20px;
+    font-size: 24px;
     color: #555;
     margin: 0;
   }
   
+  .question-icon {
+    font-size: 24px;
+    color: #555;
+  }
+  
   .answer {
-    font-size: 16px;
-    color: #777;
+    font-size: 18px;
+    color: #333;
     padding: 0 20px;
     max-height: 0;
     overflow: hidden;
@@ -46,7 +57,7 @@
   }
   
   .answer.active {
-    max-height: 200px; /* Adjust as needed */
+    max-height: 400px; /* Adjust as needed */
     transition: max-height 0.3s ease;
   }
   

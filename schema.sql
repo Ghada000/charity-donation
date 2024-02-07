@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `donation`.`blood` (
   `image_url` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `donation`.`clothes` (
   `gender` ENUM('Male', 'Female', 'Unisex') NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -88,7 +88,20 @@ CREATE TABLE IF NOT EXISTS `donation`.`medicaments` (
   `description` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `donation`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `donation`.`users` (
+  `user_id` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`user_id`))
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
