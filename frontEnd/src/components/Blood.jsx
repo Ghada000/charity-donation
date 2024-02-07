@@ -58,7 +58,6 @@ function Blood({term}) {
                     <h1>{item.blood_type}</h1>
                     <img src={item.image_url} alt={item.blood_type} />
                     <button onClick={() => handleDeleteBlood(item.id)}>Delete</button>
-                    {/* Update functionality could be added here */}
                 </div>
             ))}
 

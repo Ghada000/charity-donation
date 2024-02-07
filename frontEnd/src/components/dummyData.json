@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "user": "John Doe",
+      "email": "john@example.com",
+      "rating": 5,
+      "comment": "Great experience! Easy to donate and love the transparency in showing where the funds are going."
+    },
+    {
+      "id": 2,
+      "user": "Jane Smith",
+      "email": "jane@example.com",
+      "rating": 4,
+      "comment": "The donation process was straightforward. It would be helpful to have more options for recurring donations."
+    },
+    {
+      "id": 3,
+      "user": "Bob Johnson",
+      "email": "bob@example.com",
+      "rating": 3,
+      "comment": "I faced some issues with the payment gateway. Please improve the user interface for a smoother experience."
+    },
+    {
+      "id": 4,
+      "user": "Alice Brown",
+      "email": "alice@example.com",
+      "rating": 5,
+      "comment": "Fast and secure donation platform. I appreciate the prompt acknowledgment receipt."
+    },
+    {
+      "id": 5,
+      "user": "Charlie Wilson",
+      "email": "charlie@example.com",
+      "rating": 2,
+      "comment": "Confusing navigation. It took me a while to figure out how to donate to a specific cause."
+    }
+  ]
+  

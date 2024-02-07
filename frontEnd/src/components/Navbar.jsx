@@ -1,13 +1,10 @@
-// Navbar.jsx
 import React, { useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JavaScript
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 import './css/Navbar.css';
 
 function Navbar(props) {
-  // Initialize Bootstrap components once the component is mounted
   useEffect(() => {
-    // Bootstrap components initialization
   }, []);
 
   return (
@@ -26,7 +23,7 @@ function Navbar(props) {
               <a className="nav-link" href="#">FAQ</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Feedbacks</a>
+              <a className="nav-link" href="#" onClick={() => props.changeView("Feedback")}>Feedback</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">Donation impact</a>

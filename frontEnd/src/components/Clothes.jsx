@@ -85,8 +85,8 @@ function Clothes() {
         setName('');
         setSeason('');
         setGender('');
-        setInput(false); // Close the input fields after adding
-        setData([...data, res.data]); // Add the newly added data to the state
+        setInput(false); 
+        setData([...data, res.data]); 
       })
       .catch(error => {
         console.log(error);

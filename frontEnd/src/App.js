@@ -8,6 +8,7 @@ import Medicaments from './components/Medicaments'
 import Clothes from './components/Clothes'
 import Blood from './components/Blood'
 import Hair from './components/Hair'
+import Feedback from './components/Feedback'
 
 
 
@@ -104,6 +105,8 @@ function App() {
     {view==="Blood" && <Blood  term={term} changeView={changeView}/>}
     {view==="Clothes" && <Clothes term={term} changeView={changeView}/>}
     {view==="Medicaments" && <Medicaments  term={term} changeView={changeView}/>}
+    {view==="Feedback" && <Feedback  term={term} changeView={changeView}/>}
+
       <ThemeProvider theme={theme}>
         <ChatBot headerTitle="ChatBot" steps={steps} {...config} />
       </ThemeProvider>
