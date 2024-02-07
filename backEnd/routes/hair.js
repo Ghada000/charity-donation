@@ -4,7 +4,12 @@ const routes = express.Router();
 
 routes.get('/getAll', controller.getAllData);
 routes.post('/addOne', controller.addOneData); 
-routes.put('/update/:id', controller.updateData);
+
+routes.put('/update/:id', controller.updateData);  
+
+
+
 routes.delete('/delete/:id', controller.deleteData); 
 
+module.exports = routes
 module.exports = routes
