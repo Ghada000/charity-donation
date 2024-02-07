@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import reactPlayer from 'react-player'
+// import reacPlayer from 'react-player'
 
 function Hair() {
     const [data, setData] = useState([]);
