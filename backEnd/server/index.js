@@ -1,43 +1,23 @@
-
-
 const express = require('express');
-const bodyParser = require('body-parser');
-const cors=require('cors')
-
-
-
-
-
-
-const app = express();
-
-
-// Middleware for parsing JSON requests
-app.use(bodyParser.json());
-app.use(cors())
-
-// Use the medicament routes
-
-
-// Start the server
-
-
-
-
-
-
-app.use(express.json());
-
-
-const bloodRoutes = require('../routes/bloodroute.js');
+const bloodRoutes = require('../routes/bloodroute');
 const clothesRoutes = require('../routes/clothes.js');
 const medicamentRoutes = require('../routes/medicamentRoute');
-const route3 = require("../routes/hair.js");
+const hairRoutes = require("../routes/hair.js");
+const userRoutes = require('../routes/userRoutes');
+const cors = require('cors');
+const app = express();
+
+app.use(express.json()); // Using express.json() for parsing JSON requests
+app.use(cors({
+  origin: 'http://localhost:3000'
+}));
 
 app.use('/blood', bloodRoutes);
 app.use('/clothes', clothesRoutes);
-app.use("/hair", route3);
 app.use('/medicaments', medicamentRoutes);
+app.use('/hair', hairRoutes);
+app.use('/api', userRoutes); // Use user routes
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
