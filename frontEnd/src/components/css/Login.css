@@ -1,29 +1,8 @@
-/* AuthenticationPage.css */
+/* AdvancedLogin.css */
 
-.popup-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    z-index: 1000; /* Ensure it's on top of other elements */
-  }
-  
-  .popup-box {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-    width: 400px;
-    position: relative; /* Ensure the close button is positioned relative to the popup box */
-  }
-  
-  .popup-content {
+.popup-content {
     text-align: center;
+    padding: 20px;
   }
   
   .popup-content h2 {
@@ -31,16 +10,22 @@
     font-size: 24px;
   }
   
-  .form-group {
+  .user-box {
+    position: relative;
     margin-bottom: 20px;
   }
   
-  .form-group label {
-    display: block;
+  .user-box label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
     font-weight: bold;
+    color: #777;
+    transition: all 0.3s ease;
   }
   
-  .form-group input {
+  .user-box input {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -49,9 +34,15 @@
     transition: border-color 0.3s ease;
   }
   
-  .form-group input:focus {
-    outline: none;
-    border-color: #007bff;
+  .user-box input:focus + label,
+  .user-box input:not(:placeholder-shown) + label {
+    font-size: 12px;
+    top: 5px;
+    left: 10px;
+    transform: translateY(0%);
+    background-color: white;
+    padding: 0 5px;
+    color: #007bff;
   }
   
   .error-message {
@@ -68,26 +59,39 @@
     transition: background-color 0.3s ease;
   }
   
-  .btn-primary {
+  .btn-register {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .btn-register:hover {
+    background-color: #218838;
+  }
+  
+  .btn-login {
     background-color: #007bff;
     color: #fff;
   }
   
-  .btn-primary:hover {
+  .btn-login:hover {
     background-color: #0056b3;
   }
   
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+  .login-link,
+  .register-link {
+    margin-top: 10px;
+    font-size: 14px;
   }
   
-  .close-button:hover {
-    color: #ff3333; /* Change color on hover */
+  .login-link span,
+  .register-link span {
+    color: #007bff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .login-link span:hover,
+  .register-link span:hover {
+    color: #0056b3;
   }
   
