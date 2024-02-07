@@ -78,19 +78,19 @@
   
   @keyframes color-change {
     0% {
-      color: #FF5733; /* Starting color */
+      color: #807c7b; /* Starting color */
     }
     25% {
-      color: #33FF57; /* First transition color */
+      color: #1e0263; /* First transition color */
     }
     50% {
       color: #5733FF; /* Second transition color */
     }
     75% {
-      color: #FFC300; /* Third transition color */
+      color: #2600ff; /* Third transition color */
     }
     100% {
-      color: #FF5733; /* Back to starting color */
+      color: #33a3ff; /* Back to starting color */
     }
   }
   

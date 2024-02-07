@@ -4,10 +4,12 @@ import React from 'react';
 import './css/Home.css'
 import { FaMedal } from "react-icons/fa";
 import data from '../data.json'
+import Navbar from './Navbar';
 
 function Home() {
   return (
     <div>
+
     <div className='nimg'>
       <header  style={{ 
         
