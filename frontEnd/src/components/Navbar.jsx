@@ -1,11 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 import './css/Navbar.css';
+import Login from '../components/login'; // Import the Login component
 
 function Navbar(props) {
   useEffect(() => {
   }, []);
+
+  const [view, setView] = useState(null);
+
+  const handleLoginClick = () => {
+    // Set the view state to 'Login'
+    setView('Login');
+  };
+
+  // Render the Login component if the view state is 'Login'
+  if (view === 'Login') {
+    return <Login />;
+  }
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -17,10 +30,10 @@ function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Home</a>
+              <a className="nav-link active" aria-current="page" href="#" onClick={() => props.changeView("Home")}>Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">FAQ</a>
+              <a className="nav-link" href="#"  onClick={() => props.changeView("FAQ")}>FAQ</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#" onClick={() => props.changeView("Feedback")}>Feedback</a>
@@ -44,6 +57,7 @@ function Navbar(props) {
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button className="btn btn-outline-success" type="submit">Search</button>
           </form>
+          <button className="btn btn-outline-primary ms-2" onClick={handleLoginClick}>Login</button>
         </div>
       </div>
     </nav>
