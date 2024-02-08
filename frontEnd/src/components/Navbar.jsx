@@ -50,6 +50,15 @@ function Navbar(props) {
                   <li><a className="dropdown-item" href="#" onClick={() => props.changeView("Medicaments")}>Medicaments</a></li>
                 </ul>
               </li>
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Events
+                </a>
+                <ul className="dropdown-menu">
+                  <li><a className="dropdown-item" href="#" onClick={() => props.changeView("Event List")}>Event List</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={() => props.changeView("Event Details")}>Event Details</a></li>
+                </ul>
+              </li>
             </ul>
             <button className="btn btn-outline-primary ms-2" onClick={handleLoginClick} >Login</button>
           </div>

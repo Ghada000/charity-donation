@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `donation`.`blood` (
   `image_url` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 7
+AUTO_INCREMENT = 25
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -41,6 +41,22 @@ CREATE TABLE IF NOT EXISTS `donation`.`clothes` (
   `season` ENUM('Spring', 'Summer', 'Autumn', 'Winter') NULL DEFAULT NULL,
   `size` ENUM('XS', 'S', 'M', 'L', 'XL', 'XXL') NULL DEFAULT NULL,
   `gender` ENUM('Male', 'Female', 'Unisex') NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 9
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `donation`.`events`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `donation`.`events` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255) NOT NULL,
+  `description` TEXT NULL DEFAULT NULL,
+  `date` DATE NULL DEFAULT NULL,
+  `location` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 6
@@ -72,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `donation`.`hair` (
   `picture5_image_url` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`donation_id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -88,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `donation`.`medicaments` (
   `description` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
+AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -102,6 +118,7 @@ CREATE TABLE IF NOT EXISTS `donation`.`users` (
   `password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`user_id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 

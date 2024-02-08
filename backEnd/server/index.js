@@ -4,6 +4,8 @@ const clothesRoutes = require('../routes/clothes.js');
 const medicamentRoutes = require('../routes/medicamentRoute');
 const hairRoutes = require("../routes/hair.js");
 const userRoutes = require('../routes/userRoutes');
+const Eventrout = require('../routes/Eventroute.js');
+
 const cors = require('cors');
 const app = express();
 
@@ -16,7 +18,9 @@ app.use('/blood', bloodRoutes);
 app.use('/clothes', clothesRoutes);
 app.use('/medicaments', medicamentRoutes);
 app.use('/hair', hairRoutes);
-app.use('/api', userRoutes); // Use user routes
+app.use('/api', userRoutes); 
+app.use('/event', Eventrout); 
+
 
 const PORT = process.env.PORT || 5000;
 
