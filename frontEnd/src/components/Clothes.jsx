@@ -1,7 +1,6 @@
-
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './css/Clothes.css';
 
 function Clothes() {
   const [data, setData] = useState([]);
@@ -11,7 +10,6 @@ function Clothes() {
   const [size, setSize] = useState("");
   const [gender, setGender] = useState("");
   const [input, setInput] = useState(false);
-
   const [editingId, setEditingId] = useState(null);
 
   useEffect(() => {
@@ -96,9 +94,9 @@ function Clothes() {
   const isFormValid = name && image_url && season && size && gender;
 
   return (
-    <div>
+    <div className="clothes-container">
       {data.map((item) => (
-        <div key={item.id}>
+        <div key={item.id} className="clothes-card">
           <h2>{item.season}</h2>
           <h2>{item.name}</h2>
           <h2>{item.size}</h2>
