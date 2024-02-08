@@ -4,11 +4,12 @@ const clothesRoutes = require('../routes/clothes.js');
 const medicamentRoutes = require('../routes/medicamentRoute');
 const hairRoutes = require("../routes/hair.js");
 const userRoutes = require('../routes/userRoutes');
-const campaignRoutes = require('../routes/campaignroute.js');
-const donationRoutes = require('../routes/donationroute.js');
+const userssRoutes = require('../routes/userssroute.js');
+const campaignsRoutes = require('../routes/campaignroute.js');
+const donationsRoutes = require('../routes/donationroute.js');
 const cors = require('cors');
 const app = express();
-const userssRoutes = require('../routes/userssroute.js');
+
 
 app.use(express.json()); // Using express.json() for parsing JSON requests
 app.use(cors({
@@ -20,8 +21,8 @@ app.use('/clothes', clothesRoutes);
 app.use('/medicaments', medicamentRoutes);
 app.use('/hair', hairRoutes);
 app.use('/api', userRoutes); // Use user routes
-app.use('/api/campaigns', campaignRoutes);
-app.use('/api/donations', donationRoutes);
+app.use('/api/campaigns', campaignsRoutes);
+app.use('/api/donations', donationsRoutes);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

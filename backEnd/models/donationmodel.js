@@ -1,8 +1,8 @@
-// models/donationModel.js
+// models/donationsModel.js
 
 const db = require('../database/index2');
 
-const Donation = {
+const Donations = {
     create: async (userId, campaignId, amount) => {
         try {
             await db.query('INSERT INTO Donations (userId, campaignId, amount) VALUES (?, ?, ?)', [userId, campaignId, amount]);
@@ -11,7 +11,8 @@ const Donation = {
             console.error('Error creating donation:', error);
             throw error;
         }
-    }
+    },
+    // Add other CRUD operations as needed
 };
 
-module.exports = Donation;
+module.exports = Donations;

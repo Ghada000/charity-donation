@@ -1,43 +1,37 @@
-// models/campaignModel.js
+// models/campaignsModel.js
 
 const db = require('../database/index2');
 
-const Campaign = {
-  getAll: async () => {
-    try {
-      const [rows, fields] = await db.query('SELECT * FROM Campaigns');
-      return rows;
-    } catch (error) {
-      throw new Error('Error getting campaigns: ' + error.message);
-    }
-  },
-
-  create: async (name, goal, progress = 0) => {
-    try {
-      const [result] = await db.query('INSERT INTO Campaigns (name, goal, progress) VALUES (?, ?, ?)', [name, goal, progress]);
-      return result.insertId;
-    } catch (error) {
-      throw new Error('Error creating campaign: ' + error.message);
-    }
-  },
-
-  update: async (id, name, goal) => {
-    try {
-      await db.query('UPDATE Campaigns SET name=?, goal=? WHERE id=?', [name, goal, id]);
-      return id;
-    } catch (error) {
-      throw new Error('Error updating campaign: ' + error.message);
-    }
-  },
-
-  delete: async (id) => {
-    try {
-      await db.query('DELETE FROM Campaigns WHERE id=?', [id]);
-      return id;
-    } catch (error) {
-      throw new Error('Error deleting campaign: ' + error.message);
-    }
-  }
+const Campaigns = {
+    create: async (name, goal) => {
+        try {
+            await db.query('INSERT INTO Campaigns (name, goal) VALUES (?, ?)', [name, goal]);
+            return;
+        } catch (error) {
+            console.error('Error creating campaign:', error);
+            throw error;
+        }
+    },
+    getAllCampaigns: async () => { // Define the method to get all campaigns
+        try {
+            const campaigns = await db.query('SELECT * FROM Campaigns');
+            return campaigns;
+        } catch (error) {
+            console.error('Error getting all campaigns:', error);
+            throw error;
+        }
+    },
+    // Method to get total amount donated for a campaign
+    getTotalDonatedForCampaign: async (campaignId) => {
+        try {
+            const result = await db.query('SELECT SUM(amount) AS totalDonated FROM Donations WHERE campaignId = ?', [campaignId]);
+            return result[0].totalDonated || 0;
+        } catch (error) {
+            console.error('Error getting total donated for campaign:', error);
+            throw error;
+        }
+    },
+    // Add other CRUD operations as needed
 };
 
-module.exports = Campaign;
+module.exports = Campaigns;

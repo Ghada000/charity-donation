@@ -32,6 +32,35 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
+-- Table `donation`.`campaigns`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `donation`.`campaigns` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `goal` DECIMAL(10,2) NOT NULL,
+  `progress` DECIMAL(5,2) NOT NULL DEFAULT '0.00',
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `donation`.`chat_messages`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `donation`.`chat_messages` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `sender` VARCHAR(255) NOT NULL,
+  `message` TEXT NOT NULL,
+  `timestamp` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
 -- Table `donation`.`clothes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `donation`.`clothes` (
@@ -44,6 +73,51 @@ CREATE TABLE IF NOT EXISTS `donation`.`clothes` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `donation`.`userss`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `donation`.`userss` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `full_name` VARCHAR(255) NULL DEFAULT NULL,
+  `birthdate` DATE NULL DEFAULT NULL,
+  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `username` (`username` ASC) VISIBLE,
+  UNIQUE INDEX `email` (`email` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `donation`.`donations`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `donation`.`donations` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `userId` INT NOT NULL,
+  `campaignId` INT NOT NULL,
+  `amount` DECIMAL(10,2) NOT NULL,
+  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  INDEX `userId` (`userId` ASC) VISIBLE,
+  INDEX `campaignId` (`campaignId` ASC) VISIBLE,
+  CONSTRAINT `donations_ibfk_1`
+    FOREIGN KEY (`userId`)
+    REFERENCES `donation`.`userss` (`id`),
+  CONSTRAINT `donations_ibfk_2`
+    FOREIGN KEY (`campaignId`)
+    REFERENCES `donation`.`campaigns` (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -102,6 +176,7 @@ CREATE TABLE IF NOT EXISTS `donation`.`users` (
   `password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`user_id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 11
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 

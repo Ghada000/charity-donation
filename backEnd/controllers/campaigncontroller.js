@@ -1,43 +1,35 @@
-// controllers/campaignController.js
+// controllers/campaignsController.js
 
-const Campaign = require('../models/campaignmodel');
-
-exports.getAllCampaigns = async (req, res) => {
-  try {
-    const campaigns = await Campaign.getAll();
-    res.json(campaigns);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
+const Campaigns = require('../models/campaignmodel');
 
 exports.createCampaign = async (req, res) => {
-  try {
-    const { name, goal } = req.body;
-    const campaignId = await Campaign.create(name, goal);
-    res.status(201).json({ id: campaignId });
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
+    try {
+        const { name, goal } = req.body;
+        await Campaigns.create(name, goal);
+        res.status(201).json({ message: 'Campaign created successfully' });
+    } catch (error) {
+        console.error('Error creating campaign:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
 };
 
-exports.updateCampaign = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { name, goal } = req.body;
-    await Campaign.update(id, name, goal);
-    res.json({ id });
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
+exports.getCampaigns = async (req, res) => {
+    try {
+        // Retrieve all campaigns from the database
+        const campaigns = await Campaigns.getAllCampaigns(); // Corrected method name
+        
+        // Calculate progress for each campaign
+        const campaignsWithProgress = await Promise.all(campaigns.map(async campaign => {
+            const totalDonated = await Campaigns.getTotalDonatedForCampaign(campaign.id);
+            const progress = (totalDonated / campaign.goal) * 100;
+            return { ...campaign, progress };
+        }));
+        
+        res.status(200).json(campaignsWithProgress);
+    } catch (error) {
+        console.error('Error getting campaigns:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
 };
 
-exports.deleteCampaign = async (req, res) => {
-  try {
-    const { id } = req.params;
-    await Campaign.delete(id);
-    res.json({ id });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
+// Add other controller methods as needed

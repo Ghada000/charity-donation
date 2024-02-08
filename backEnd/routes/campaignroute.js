@@ -1,19 +1,13 @@
-// routes/campaignRoutes.js
+// routes/campaignsRoutes.js
 
 const express = require('express');
 const router = express.Router();
-const campaignController = require('../controllers/campaigncontroller'); // Corrected filename
-
-// GET all campaigns
-router.get('/', campaignController.getAllCampaigns);
+const campaignsController = require('../controllers/campaigncontroller');
 
 // POST create a new campaign
-router.post('/', campaignController.createCampaign);
+router.post('/', campaignsController.createCampaign);
 
-// PUT update an existing campaign
-router.put('/:id', campaignController.updateCampaign);
-
-// DELETE delete a campaign
-router.delete('/:id', campaignController.deleteCampaign);
+// GET retrieve all campaigns with progress
+router.get('/', campaignsController.getCampaigns);
 
 module.exports = router;
