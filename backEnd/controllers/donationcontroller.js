@@ -26,5 +26,16 @@ function donate(req, res) {
     });
   });
 }
-
-module.exports = { donate };
+function getTotalDonation(req, res) {
+    donationModel.getTotalDonation((err, result) => {
+      if (err) {
+        console.error('Error getting total donation amount:', err);
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+  
+      const totalDonation = result[0].totalDonation || 0;
+      res.json({ totalDonation });
+    });
+  }
+  
+  module.exports = { donate, getTotalDonation };
