@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "user": "Ahmed Abdullah",
+    "email": "ahmed.abdullah@example.com",
+    "rating": 4,
+    "comment": "Great initiative! Happy to contribute."
+  },
+  {
+    "id": 2,
+    "user": "Fatima Ali",
+    "email": "fatima.ali@example.com",
+    "rating": 5,
+    "comment": "Excellent cause. Keep up the good work!"
+  },
+  {
+    "id": 3,
+    "user": "Mohammed Khan",
+    "email": "mohammed.khan@example.com",
+    "rating": 3,
+    "comment": "Could use some improvement, but overall a noble cause."
+  },
+  {
+    "id": 4,
+    "user": "Aisha Ahmed",
+    "email": "aisha.ahmed@example.com",
+    "rating": 5,
+    "comment": "Happy to support such meaningful projects."
+  },
+  {
+    "id": 5,
+    "user": "Omar Salah",
+    "email": "omar.salah@example.com",
+    "rating": 4,
+    "comment": "Keep making a difference in people's lives."
+  },
+  {
+    "id": 6,
+    "user": "Layla Hamdi",
+    "email": "layla.hamdi@example.com",
+    "rating": 4,
+    "comment": "Proud to be part of this noble cause. Let's make a positive impact together."
+  }
+]
