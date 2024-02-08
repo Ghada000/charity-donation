@@ -193,3 +193,83 @@
 .step-container h3{
   font-family: 'Times New Roman', Times, serif;
 }
+
+
+
+.con{
+  display: flex;
+  
+  
+}
+.category {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.name {
+  font-size: 18px;
+  color: #555;
+}
+
+.description {
+  font-size: 16px;
+  color: #777;
+}
+
+.taswira {
+
+  width: 250px;
+  height: 250px;
+  object-fit: cover; 
+  margin: 33px; /* Add some margin between the images */
+  border-radius: 200px; /* Rounded corners */
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Smooth transition for hover effect */
+  filter: grayscale(0%); /* Initially set image color to full */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  margin-top: 5%;
+}
+
+
+.felsa {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.felsa:hover {
+  background-color: #0056b3;
+}
+
+.input-fields {
+  margin-top: 10px;
+}
+
+.input-fields input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.add-container {
+  margin-top: 20px;
+}
+
+.add-container .felsa {
+  margin-top: 10px;
+}
+
+.add-container .input-fields {
+  margin-top: 10px;
+}
+
+.add-container .input-fields input {
+  margin-bottom: 10px;
+} 
