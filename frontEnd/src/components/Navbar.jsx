@@ -56,7 +56,6 @@ function Navbar(props) {
                 </a>
                 <ul className="dropdown-menu">
                   <li><a className="dropdown-item" href="#" onClick={() => props.changeView("Event List")}>Event List</a></li>
-                  <li><a className="dropdown-item" href="#" onClick={() => props.changeView("Event Details")}>Event Details</a></li>
                 </ul>
               </li>
             </ul>
