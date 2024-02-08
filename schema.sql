@@ -27,6 +27,19 @@ CREATE TABLE IF NOT EXISTS `donation`.`blood` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 25
+AUTO_INCREMENT = 13
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `donation`.`children`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `donation`.`children` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `image_url` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -105,6 +118,7 @@ CREATE TABLE IF NOT EXISTS `donation`.`medicaments` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 9
+AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -119,6 +133,7 @@ CREATE TABLE IF NOT EXISTS `donation`.`users` (
   PRIMARY KEY (`user_id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 

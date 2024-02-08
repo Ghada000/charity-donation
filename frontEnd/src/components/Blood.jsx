@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Blood({term}) {
+function Blood() {
     const [data, setData] = useState([]);
     const [newBloodType, setNewBloodType] = useState('');
     const [newImageUrl, setNewImageUrl] = useState('');

@@ -13,7 +13,7 @@ const EventController = {
   
   getEventById: (req, res) => {
     const id = req.params.id;
-    Event.getById(id, (err, result) => {
+    Event.getone(id, (err, result) => {
       if (err) {
         res.status(500).json({ message: 'Internal server error' });
       } else if (!result) {
