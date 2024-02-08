@@ -7,7 +7,16 @@ const campaignsController = require('../controllers/campaigncontroller');
 // POST create a new campaign
 router.post('/', campaignsController.createCampaign);
 
-// GET retrieve all campaigns with progress
-router.get('/', campaignsController.getCampaigns);
+// GET all campaigns
+router.get('/', campaignsController.getAllCampaigns);
+
+// GET campaign by id
+router.get('/:id', campaignsController.getCampaignById);
+
+// PUT update campaign
+router.put('/:id', campaignsController.updateCampaign);
+
+// DELETE campaign
+router.delete('/:id', campaignsController.deleteCampaign);
 
 module.exports = router;

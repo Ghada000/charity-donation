@@ -38,24 +38,10 @@ CREATE TABLE IF NOT EXISTS `donation`.`campaigns` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `goal` DECIMAL(10,2) NOT NULL,
-  `progress` DECIMAL(5,2) NOT NULL DEFAULT '0.00',
+  `progress` DECIMAL(10,2) NOT NULL DEFAULT '0.00',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `donation`.`chat_messages`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `donation`.`chat_messages` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `sender` VARCHAR(255) NOT NULL,
-  `message` TEXT NOT NULL,
-  `timestamp` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -93,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `donation`.`userss` (
   UNIQUE INDEX `username` (`username` ASC) VISIBLE,
   UNIQUE INDEX `email` (`email` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -106,18 +92,22 @@ CREATE TABLE IF NOT EXISTS `donation`.`donations` (
   `userId` INT NOT NULL,
   `campaignId` INT NOT NULL,
   `amount` DECIMAL(10,2) NOT NULL,
-  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `createdAt` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   INDEX `userId` (`userId` ASC) VISIBLE,
   INDEX `campaignId` (`campaignId` ASC) VISIBLE,
-  CONSTRAINT `donations_ibfk_1`
-    FOREIGN KEY (`userId`)
-    REFERENCES `donation`.`userss` (`id`),
-  CONSTRAINT `donations_ibfk_2`
+  CONSTRAINT `fk_campaign_id`
     FOREIGN KEY (`campaignId`)
-    REFERENCES `donation`.`campaigns` (`id`))
+    REFERENCES `donation`.`campaigns` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_user_id`
+    FOREIGN KEY (`userId`)
+    REFERENCES `donation`.`userss` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 7
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
