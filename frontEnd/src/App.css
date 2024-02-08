@@ -96,6 +96,8 @@
   text-align: center;
 }
 
+
+
 .titre {
   font-size: 45px; /* Increase font size for impact */
   color: rgb(43, 43, 173); /* Deep blue color */
@@ -103,10 +105,11 @@
   font-family: 'Roboto', sans-serif; /* Modern sans-serif font */
   text-align: center;
   margin-top: 3%;
-  background: linear-gradient(45deg, #c15f5f, #043870); /* Gradient background */
+  background: linear-gradient(45deg, #bc0f0f, #097af4); /* Gradient background */
   -webkit-background-clip: text; /* Clip text to gradient background */
   -webkit-text-fill-color: transparent; /* Make text transparent */
   animation: rainbow 5s linear infinite alternate; 
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .soustitre {
@@ -119,6 +122,7 @@
   margin-left: 14%;
   margin-right: 14%;
   margin-top: 3%;
+  font-family: 'Times New Roman', Times, serif;
 }
 .video{
   font-size: 20px;
@@ -163,7 +167,29 @@
 
 
 
+.par {
+  font-size: 2em; /* Increase the font size */
+  font-weight: bold; /* Make the text bold */
+  line-height: 1.5; /* Adjust the line height for better readability */
+  text-transform: uppercase; /* Transform text to uppercase */
+  letter-spacing: 2px; /* Add letter spacing for emphasis */
+  color: #333; /* Set text color */
+  background-color: #c9bac7; /* Set background color */
+  padding: 20px; /* Add padding around the paragraph */
+  border-radius: 20px; /* Add border radius for rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+  transition: all 0.3s ease; /* Add transition for smoothness */
+  width: 70%;
+  margin-left: 15%;
+}
+
+.par:hover {
+  transform: scale(1.05); /* Scale the paragraph on hover */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
 
 
 
-
+.step-container h3{
+  font-family: 'Times New Roman', Times, serif;
+}

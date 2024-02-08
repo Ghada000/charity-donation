@@ -121,7 +121,7 @@ function Hair() {
                         ></iframe>
                     </div>
                     <div className='step'>
-                        <p className='par'>{item.picture1_title}: {item.picture1_description}</p>
+                        <p className='par'>Step 1</p>
                         <img 
                             className='image' 
                             src={item.picture1_image_url} 
@@ -135,7 +135,7 @@ function Hair() {
                         )}
                     </div>
                     <div className='step'>
-                        <p className='par'>{item.picture2_title}: {item.picture2_description}</p>
+                        <p className='par'>Step 2</p>
                         <img 
                             className='image' 
                             src={item.picture2_image_url} 
@@ -149,7 +149,7 @@ function Hair() {
                         )}
                     </div>
                     <div className='step'>
-                        <p className='par'>{item.picture3_title}: {item.picture3_description}</p>
+                        <p className='par'>Step 3 </p>
                         <img 
                             className='image' 
                             src={item.picture3_image_url} 
@@ -163,7 +163,7 @@ function Hair() {
                         )}
                     </div>
                     <div className='step'>
-                        <p className='par'>{item.picture4_title}: {item.picture4_description}</p>
+                        <p className='par'>Step 4</p>
                         <img 
                             className='image' 
                             src={item.picture4_image_url} 
