@@ -8,7 +8,7 @@ function Navbar(props) {
   const [showLogin, setShowLogin] = useState(false);
 
   const handleLoginClick = () => {
-    setShowLogin(true);
+    setShowLogin(!showLogin);
     console.log("clicked");
   };
 
