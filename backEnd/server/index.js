@@ -8,12 +8,13 @@ const campaignRoutes = require('../routes/campaignroute.js');
 const donationRoutes = require('../routes/donationroute.js');
 const cors = require('cors');
 const app = express();
+const userssRoutes = require('../routes/userssroute.js');
 
 app.use(express.json()); // Using express.json() for parsing JSON requests
 app.use(cors({
   origin: 'http://localhost:3000' 
 }));
-
+app.use('/api/userss', userssRoutes);
 app.use('/blood', bloodRoutes);
 app.use('/clothes', clothesRoutes);
 app.use('/medicaments', medicamentRoutes);
