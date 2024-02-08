@@ -106,15 +106,18 @@ function App() {
   };
   return (
     <div>
-    <Navbar changeView={changeView} set={setTerm} />
-    {view === "Home" && <Home changeView={changeView} />}
-    {view === "Hair" && <Hair term={term} changeView={changeView} />}
-    {/* ... other views */}
+            <Navbar changeView={changeView} set={setTerm}/>
+    {view==="Home" && <Home   changeView={changeView}/>}
+    {view==="Hair" && <Hair  term={term} changeView={changeView}/>}
+    {view==="Blood" && <Blood  term={term} changeView={changeView}/>}
+    {view==="Clothes" && <Clothes term={term} changeView={changeView}/>}
+    {view==="Medicaments" && <Medicaments  term={term} changeView={changeView}/>}
+    {view==="Feedback" && <Feedback  term={term} changeView={changeView}/>}
+    {view==="FAQ" && <FAQ term={term} changeView={changeView}/>}
+    {view==="ChildrenSituation" && <ChildrenSituation term={term} changeView={changeView}/>}
     {view === "Event List" && <EventList term={term} changeView={changeView} onViewDetails={onViewDetails} />}
-    {view === "Event Details" && selectedEvent && (
-      <EventDetails event={selectedEvent} onBackToList={onBackToList} />
+    {view === "Event Details" && selectedEvent && (<EventDetails event={selectedEvent} onBackToList={onBackToList} />
     )}
-
     <ChatBot headerTitle="ChatBot" steps={steps} {...config} />
     <Footer />
   </div>
