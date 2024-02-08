@@ -1,28 +1,28 @@
-import React,{useState} from 'react'
-import { ThemeProvider } from 'styled-components'
-import Navbar from './components/Navbar'
-import Home from './components/Home'
-import Footer from './components/Footer'
-import ChatBot from 'react-simple-chatbot'
-import Medicaments from './components/Medicaments'
-import Clothes from './components/Clothes'
-import Blood from './components/Blood'
-import Hair from './components/Hair'
-import FAQ from './components/FAQ'
-import ChildrenSituation from './components/ChildrenSituation'
-
-
-
-
-
+import React, { useState } from 'react';
+import EventList from './components/EventList';
+import EventDetails from './components/EventDetails';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Footer from './components/Footer';
+import ChatBot from 'react-simple-chatbot';
+import Medicaments from './components/Medicaments';
+import Clothes from './components/Clothes';
+import Blood from './components/Blood';
+import Hair from './components/Hair';
+import Feedback from './components/Feedback';
+import FAQ from './components/FAQ';
+import ChildrenSituation from './components/ChildrenSituation';
 
 function App() {
   const [menuView, setMenuView] = useState(false);
-  const[view,setView]=useState("Home")
-  const[term,setTerm]=useState("")
-  const changeView = (newView)=>{
-    setView(newView)
-  }
+  const [view, setView] = useState("Home");
+  const [term, setTerm] = useState("");
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const changeView = (newView) => {
+    setView(newView);
+  };
+
   const toggleMenu = () => {
     setMenuView(!menuView);
   };
@@ -32,7 +32,15 @@ function App() {
     setMenuView(false);
   };
 
+  const onViewDetails = (event) => {
+    setSelectedEvent(event);
+    setView('Event Details');
+  };
 
+  const onBackToList = () => {
+    setSelectedEvent(null);
+    setView('Event List');
+  };
 
   const steps = [
     {
@@ -69,7 +77,7 @@ function App() {
             switchView('Donation');
             return 'You can find Donation items by clicking on "Donation" in the navbar.';
           } else if (lowerCaseInput.includes('donation impact')) {
-
+            switchView('Donation Impact');
             return 'You can find Donation Impact items by clicking on "Donation Impact" in the navbar.';
           } else {
             return `I'm not sure how to help with that. Is there anything else you'd like to know?`;
@@ -93,28 +101,27 @@ function App() {
       userFontColor: 'white',
   };
    
-  // Set some properties of the bot
   const config = {
-      // botAvatar: "img.png",
       floating: true,
   };
   return (
     <div>
-        <Navbar changeView={changeView} set={setTerm}/>
+            <Navbar changeView={changeView} set={setTerm}/>
     {view==="Home" && <Home   changeView={changeView}/>}
     {view==="Hair" && <Hair  term={term} changeView={changeView}/>}
     {view==="Blood" && <Blood  term={term} changeView={changeView}/>}
     {view==="Clothes" && <Clothes term={term} changeView={changeView}/>}
     {view==="Medicaments" && <Medicaments  term={term} changeView={changeView}/>}
+    {view==="Feedback" && <Feedback  term={term} changeView={changeView}/>}
     {view==="FAQ" && <FAQ term={term} changeView={changeView}/>}
     {view==="ChildrenSituation" && <ChildrenSituation term={term} changeView={changeView}/>}
-
-      <ThemeProvider theme={theme}>
-        <ChatBot headerTitle="ChatBot" steps={steps} {...config} />
-      </ThemeProvider>
-      <Footer />
-    </div>
-  );
+    {view === "Event List" && <EventList term={term} changeView={changeView} onViewDetails={onViewDetails} />}
+    {view === "Event Details" && selectedEvent && (<EventDetails event={selectedEvent} onBackToList={onBackToList} />
+    )}
+    <ChatBot headerTitle="ChatBot" steps={steps} {...config} />
+    <Footer />
+  </div>
+);
 }
   
 

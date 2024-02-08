@@ -6,10 +6,8 @@
 
 section {
   width: 100%;
-  display: inline-block;
-  background: wheat;
-  height: 50vh;
-  text-align: center;
+  min-height: 100vh;
+  /* text-align: center; */
   font-size: 22px;
   font-weight: 700;
   text-decoration: underline;
