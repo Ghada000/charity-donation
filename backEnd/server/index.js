@@ -4,13 +4,13 @@ const clothesRoutes = require('../routes/clothes.js');
 const medicamentRoutes = require('../routes/medicamentRoute');
 const hairRoutes = require("../routes/hair.js");
 const userRoutes = require('../routes/userRoutes');
-
+const campaignRoutes = require('../routes/campaignroute.js');
 const cors = require('cors');
 const app = express();
 
 app.use(express.json()); // Using express.json() for parsing JSON requests
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: 'http://localhost:3000' 
 }));
 
 app.use('/blood', bloodRoutes);
@@ -18,7 +18,7 @@ app.use('/clothes', clothesRoutes);
 app.use('/medicaments', medicamentRoutes);
 app.use('/hair', hairRoutes);
 app.use('/api', userRoutes); // Use user routes
-
+app.use('/api/campaigns', campaignRoutes);
 
 const PORT = process.env.PORT || 5000;
 
