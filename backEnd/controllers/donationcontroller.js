@@ -1,74 +1,30 @@
-// controllers/donationsController.js
+const donationModel = require("../models/donationModel");
 
-const Donations = require('../models/donationmodel');
-const Campaigns = require('../models/campaignmodel');
+function donate(req, res) {
+  const { amount, donorName } = req.body;
 
+  if (!amount || isNaN(amount) || amount <= 0) {
+    return res.status(400).json({ error: 'Invalid donation amount' });
+  }
 
-exports.createDonation = async (req, res) => {
-    try {
-        const { userId, campaignId, amount } = req.body;
-
-        // Validate donation amount
-        const parsedAmount = parseFloat(amount);
-        if (isNaN(parsedAmount) || parsedAmount <= 0) {
-            throw new Error('Invalid donation amount');
-        }
-
-        await Donations.create(userId, campaignId, parsedAmount);
-        await Campaigns.updateProgress(campaignId, parsedAmount); // Pass the parsed amount here
-
-        res.status(201).json({ message: 'Donation created successfully' });
-    } catch (error) {
-        console.error('Error creating donation:', error);
-        res.status(500).json({ error: 'Internal server error' });
+  donationModel.createDonation(amount, donorName, (err) => {
+    if (err) {
+      console.error('Error making donation:', err);
+      return res.status(500).json({ error: 'Internal server error' });
     }
-};
 
+    donationModel.getTotalDonation((err, result) => {
+      if (err) {
+        console.error('Error getting total donation amount:', err);
+        return res.status(500).json({ error: 'Internal server error' });
+      }
 
-exports.getAllDonations = async (req, res) => {
-    try {
-        const donations = await Donations.getAll();
-        res.status(200).json(donations);
-    } catch (error) {
-        console.error('Error getting donations:', error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
-};
+      const totalDonation = result[0].totalDonation || 0;
+      const progressPercentage = (totalDonation / 1000000) * 100;
 
-exports.getDonationById = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const donation = await Donations.getById(id);
-        if (donation.length === 0) {
-            res.status(404).json({ message: 'Donation not found' });
-        } else {
-            res.status(200).json(donation[0]);
-        }
-    } catch (error) {
-        console.error('Error getting donation by id:', error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
-};
+      res.json({ totalDonation, progressPercentage });
+    });
+  });
+}
 
-exports.updateDonation = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const { userId, campaignId, amount } = req.body;
-        await Donations.update(id, userId, campaignId, amount);
-        res.status(200).json({ message: 'Donation updated successfully' });
-    } catch (error) {
-        console.error('Error updating donation:', error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
-};
-
-exports.deleteDonation = async (req, res) => {
-    try {
-        const { id } = req.params;
-        await Donations.delete(id);
-        res.status(200).json({ message: 'Donation deleted successfully' });
-    } catch (error) {
-        console.error('Error deleting donation:', error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
-};
+module.exports = { donate };
