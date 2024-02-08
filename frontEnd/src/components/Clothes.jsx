@@ -96,13 +96,25 @@ function Clothes() {
   return (
     <div className="clothes-container">
       {data.map((item) => (
+        <div>
         <div key={item.id} className="clothes-card">
+          <img src={item.image_url} alt={`Clothes ${item.id}`} />
+          <div className='class'>
+          <div className='unique'>
           <h2>{item.season}</h2>
           <h2>{item.name}</h2>
           <h2>{item.size}</h2>
           <h2>{item.gender}</h2>
-          <img src={item.image_url} alt={`Clothes ${item.id}`} />
+          </div>
+          <div>
 
+          <button onClick={() => handleUpdateClick(item.id)}>Edit</button>
+          <button onClick={() => handleDelete(item.id)}>Delete</button>
+          </div>
+
+          </div>
+
+          </div>
           {editingId === item.id ? (
             <>
               <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
@@ -111,13 +123,11 @@ function Clothes() {
               <input type="text" value={gender} onChange={(e) => setGender(e.target.value)} />
               <button onClick={() => handleUpdate(item.id)}>Update</button>
             </>
-          ) : (
-            <button onClick={() => handleUpdateClick(item.id)}>Edit</button>
-          )}
+          ) : (          null )}
 
-          <button onClick={() => handleDelete(item.id)}>Delete</button>
-        </div>
-      ))}
+</div>
+          ))}
+     
       <div className="add-container">
         <button onClick={() => setInput(true)}>Add</button>
         {input && (
