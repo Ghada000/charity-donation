@@ -1,25 +1,22 @@
-app.post('/api/saveImageUrl', (req, res) => {
-    const { imageUrl } = req.body;
-  
-    database.saveImageUrl(imageUrl, (err, result) => {
-      if (err) {
-        res.status(500).json({ error: 'Internal server error' });
-        return;
-      }
-      res.sendStatus(200);
-    });
+const Children = require('../models/ChildrenModel');
+
+exports.create = (req, res) => {
+  const image_url = req.body.image_url; // Change destructuring to access imageUrl directly
+  Children.create(image_url, (err, id) => {
+    if (err) {
+      res.status(500).json({ error: 'Internal server error' });
+      return;
+    }
+    res.status(201).json({ id });
   });
-  
-  app.get('/api/getImageUrl', (req, res) => {
-    database.getImageUrl((err, imageUrl) => {
-      if (err) {
-        res.status(500).json({ error: 'Internal server error' });
-        return;
-      }
-      if (!imageUrl) {
-        res.status(404).json({ error: 'Image URL not found' });
-        return;
-      }
-      res.json({ imageUrl });
-    });
-  })
+};
+
+exports.getAll = (req, res) => {
+  Children.getAll((err, children) => {
+    if (err) {
+      res.status(500).json({ error: 'Internal server error' });
+      return;
+    }
+    res.json(children);
+  });
+};

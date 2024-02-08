@@ -1,36 +1,31 @@
-const db = require('../database/index');
+const connection = require("../database/index.js");
 
-function saveImageUrl(imageUrl, callback) {
+
+class Children {
+  static create(image_url, callback) {
     const sql = 'INSERT INTO children (image_url) VALUES (?)';
-    connection.query(sql, [imageUrl], (err, result) => {
+    connection.query(sql, [image_url], (err, result) => {
       if (err) {
         console.error('Error saving image URL:', err);
         callback(err);
         return;
       }
       console.log('Image URL saved to database');
-      callback(null, result);
+      callback(null, result.insertId);
     });
   }
-  
-  function getImageUrl(callback) {
-    const sql = 'SELECT image_url FROM children ORDER BY id DESC LIMIT 1';
-    connection.query(sql, (err, result) => {
+
+  static getAll(callback) {
+    const sql = 'SELECT * FROM children';
+    connection.query(sql, (err, results) => {
       if (err) {
-        console.error('Error fetching image URL:', err);
+        console.error('Error fetching children:', err);
         callback(err);
         return;
       }
-      if (result.length === 0) {
-        callback(null, null);
-        return;
-      }
-      const imageUrl = result[0].image_url;
-      callback(null, imageUrl);
+      callback(null, results);
     });
   }
-  
-  module.exports = {
-    saveImageUrl,
-    getImageUrl
-  };
+}
+
+module.exports = Children;
