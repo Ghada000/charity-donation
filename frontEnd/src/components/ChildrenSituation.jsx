@@ -54,12 +54,12 @@ function ChildrenSituation() {
   return (
     <div>
       <h1 className='title'>Main problems faced by children in Tunisia:</h1>
-      <p className='para'>Poverty : <br /> The level of poverty in Tunisia is at more than 24%. The gross national  income (GNI) per person is only 3,720 dollars compared with 43,990 dollars in France. Poverty mainly affects the western regions of the country. Unfortunately, the children’s situations are heavily influenced by the economic condition of the country.</p>
-      <p className='para'>Right to health : <br />
+      <p className='para'> <span >Poverty :</span> <br /> The level of poverty in Tunisia is at more than 24%. The gross national  income (GNI) per person is only 3,720 dollars compared with 43,990 dollars in France. Poverty mainly affects the western regions of the country. Unfortunately, the children’s situations are heavily influenced by the economic condition of the country.</p>
+      <p className='para'><span >Right to health :</span> <br />
 
 Despite the significant progress made in Tunisia concerning childrens health, it remains a problem. The infant mortality rate of children younger than 5 years old is 12 ‰, something that needs to be improved.</p>
-      <p className='para'>Child emigrants :  <br /> When faced with the institutional and revolutionary crisis that affected Tunisia in 2011, many fled, primarily to Italy and France in search of the “European Ideal”.</p>
-      <p className='para'>Child abuse : <br />With physical violence deeply entrenched as a means of punishment in Tunisian society, despite the recent ban through legislation, it is still quite common. Deeply-rooted mentalities are proving difficult to change. </p>
+      <p className='para'> <span >Child emigrants : </span> <br /> When faced with the institutional and revolutionary crisis that affected Tunisia in 2011, many fled, primarily to Italy and France in search of the “European Ideal”.</p>
+      <p className='para'> <span >Child abuse :</span> <br />With physical violence deeply entrenched as a means of punishment in Tunisian society, despite the recent ban through legislation, it is still quite common. Deeply-rooted mentalities are proving difficult to change. </p>
       <input
         type="file"
         onChange={handleFileChange}
