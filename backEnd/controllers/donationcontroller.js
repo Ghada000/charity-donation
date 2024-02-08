@@ -1,6 +1,6 @@
 // controllers/donationController.js
 
-const Donation = require('../models/donationModel');
+const Donation = require('../models/donationmodel');
 
 exports.createDonation = async (req, res) => {
   try {
