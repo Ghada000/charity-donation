@@ -37,7 +37,7 @@ function Navbar(props) {
                 <a className="nav-link" href="#">Feedbacks</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Donation impact</a>
+                <a className="nav-link" href="#"  onClick={() => props.changeView("ChildrenSituation")}>Children Situation</a>
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
