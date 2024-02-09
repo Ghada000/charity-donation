@@ -111,7 +111,7 @@ function Clothes() {
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
                 <input type="text" value={image_url} onChange={(e) => setImage_url(e.target.value)} />
                 <input type="text" value={size} onChange={(e) => setSize(e.target.value)} />
-               
+                <input type="text" value={gender} onChange={(e) => setGender(e.target.value)} />
                 <button onClick={() => handleUpdate(item.id)}>Update</button>
               </div>
             )}
@@ -132,8 +132,16 @@ function Clothes() {
               value={image_url}
               onChange={(event) => setImage_url(event.target.value)}
             />
-          
-           
+            <input
+              placeholder="Season"
+              value={season}
+              onChange={(event) => setSeason(event.target.value)}
+            />
+            <input
+              placeholder="Gender"
+              value={gender}
+              onChange={(event) => setGender(event.target.value)}
+            />
             <input
               placeholder="Size"
               value={size}
