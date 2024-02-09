@@ -71,3 +71,4 @@ function Blood() {
 }
 
 export default Blood;
+
