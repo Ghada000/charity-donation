@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './css/Navbar.css';
 import Login from '../components/login';
 import ProgressBar from '../components/progressbar'; // Import ProgressBar component
-
+import pict from '../pictures/LOGO.png'
 function Navbar(props) {
   const [showLogin, setShowLogin] = useState(false);
   const [showProgressBar, setShowProgressBar] = useState(false); // State to control ProgressBar visibility
@@ -30,7 +30,7 @@ function Navbar(props) {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Navbar</a>
+          <img src={pict} alt="" />
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -55,7 +55,7 @@ function Navbar(props) {
                 <ul className="dropdown-menu">
                   <li><a className="dropdown-item" href="#" onClick={() => { props.changeView("Hair"); toggleProgressBar("Hair"); }}>Hair donation</a></li>
                   <li><a className="dropdown-item" href="#" onClick={() => { props.changeView("Blood"); toggleProgressBar("Blood"); }}>Blood donation</a></li>
-                  <li><a className="dropdown-item" href="#" onClick={() => { props.changeView("Clothes"); toggleProgressBar("Clothes"); }}>Clothes</a></li>
+                 
                   <li><a className="dropdown-item" href="#" onClick={() => { props.changeView("Medicaments"); toggleProgressBar("Medicaments"); }}>Medicaments</a></li>
                   {/* Add a new button for money donation */}
                   <li><a className="dropdown-item" href="#" onClick={() => { props.changeView("MoneyDonation"); toggleProgressBar("MoneyDonation"); }}>Money donation</a></li>
