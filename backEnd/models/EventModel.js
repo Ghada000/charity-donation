@@ -14,7 +14,7 @@ module.exports = {
     });
   },
   create: (data, callback) => {
-    const sql = 'INSERT INTO events SET ?';
+    const sql = 'INSERT INTO events SET title=?,';
     connection.query(sql, data, (err, results) => {
       callback(err, results);
     });
