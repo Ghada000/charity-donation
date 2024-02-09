@@ -16,7 +16,7 @@ function Home() {
           <img src="https://images.unsplash.com/photo-1632923057155-dd35366509ce?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBvb3J8ZW58MHx8MHx8fDA%3D" alt="Child 1" className="childImage" />
           <div className="childDescription">
             <h2>Child Name 1</h2>
-            <p>Description of the situation for Child 1...</p>
+            <p>Bright boy, hopeful despite poverty. Dreams of school, friends, and food. Needs support to break free and pursue dreams.</p>
           </div>
         </div>
         {/* Second child box */}
@@ -24,7 +24,7 @@ function Home() {
           <img src="https://images.unsplash.com/photo-1518949142393-f1d68174c92a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9vcnxlbnwwfHwwfHx8MA%3D%3D" alt="Child 2" className="childImage" />
           <div className="childDescription">
             <h2>Child Name 2</h2>
-            <p>Description of the situation for Child 2...</p>
+            <p>Talented boy, ambitious despite hardship. Dreams of a brighter future. Needs support for education and growth.</p>
           </div>
         </div>
         {/* Third child box */}
@@ -40,7 +40,7 @@ function Home() {
           <img src="https://images.unsplash.com/photo-1635929114944-8bab23b98e74?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBvb3J8ZW58MHx8MHx8fDA%3D" alt="Child 4" className="childImage" />
           <div className="childDescription">
             <h2>Child Name 4</h2>
-            <p>Description of the situation for Child 4...</p>
+            <p>three boys facing poverty, share a common determination to overcome adversity and pursue their dreams. </p>
           </div>
         </div>
         {/* Add more child boxes as needed */}
