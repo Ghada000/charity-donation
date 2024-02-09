@@ -12,6 +12,8 @@ import Hair from './components/Hair';
 import Feedback from './components/Feedback';
 import FAQ from './components/FAQ';
 import ChildrenSituation from './components/ChildrenSituation';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JavaScript
 
 function App() {
   const [menuView, setMenuView] = useState(false);

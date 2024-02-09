@@ -3,6 +3,7 @@ import './css/FAQ.css'; // Import CSS for styling
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
+
 const FAQ = () => {
   // State to manage the visibility of each FAQ item
   const [expandedItem, setExpandedItem] = useState(null);
@@ -46,11 +47,11 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="faq">
+    <div className="faq px-5" >
       <h2>Frequently Asked Questions</h2>
       {faqData.map((item, index) => (
-        <div className="faq-item" key={index}>
-          <div className="question-wrapper" onClick={() => toggleItem(index)}>
+        <div className="faq-item mx-5" key={index}>
+          <div className="question-wrapper " onClick={() => toggleItem(index)}>
             <h3>{item.question}</h3>
             <FontAwesomeIcon icon={expandedItem === index ? faChevronUp : faChevronDown} />
           </div>

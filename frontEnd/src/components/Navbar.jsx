@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JavaScript
 import './css/Navbar.css';
 import Login from '../components/login';
 import ProgressBar from '../components/progressbar'; // Import ProgressBar component

@@ -219,21 +219,21 @@ function Medicaments() {
       description: description,
       image_url: image_url,
       category: category
-    }
+    };
+
     axios.post('http://localhost:5000/medicaments/add', newMedicament)
       .then(res => {
-        // Handle success
-        console.log(res.data);
+        setData([...data, res.data]); 
         setName('');
         setImage_url('');
         setDescription('');
         setCategory('');
+        setInput(false); 
       })
       .catch(error => {
-        // Handle error
         console.log(error);
       });
-  }
+  };
 
   const handleCategoryClick = (clickedCategory) => {
     const selectedMedicament = data.find(item => item.category === clickedCategory);
@@ -305,3 +305,4 @@ function Medicaments() {
 }
 
 export default Medicaments;
+
