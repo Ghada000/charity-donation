@@ -6,7 +6,7 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import ChatBot from 'react-simple-chatbot';
 import Medicaments from './components/Medicaments';
-import Clothes from './components/Clothes';
+
 import Blood from './components/Blood';
 import Hair from './components/Hair';
 import Feedback from './components/Feedback';
@@ -112,7 +112,7 @@ function App() {
     {view==="Home" && <Home   changeView={changeView}/>}
     {view==="Hair" && <Hair  term={term} changeView={changeView}/>}
     {view==="Blood" && <Blood  term={term} changeView={changeView}/>}
-    {view==="Clothes" && <Clothes term={term} changeView={changeView}/>}
+    
     {view==="Medicaments" && <Medicaments  term={term} changeView={changeView}/>}
     {view==="Feedback" && <Feedback  term={term} changeView={changeView}/>}
     {view==="FAQ" && <FAQ term={term} changeView={changeView}/>}

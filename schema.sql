@@ -38,14 +38,13 @@ CREATE TABLE IF NOT EXISTS `donation`.`clothes` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `image_url` VARCHAR(255) NULL DEFAULT NULL,
   `name` VARCHAR(255) NULL DEFAULT NULL,
-  `season` ENUM('Spring', 'Summer', 'Autumn', 'Winter') NULL DEFAULT NULL,
   `size` ENUM('XS', 'S', 'M', 'L', 'XL', 'XXL') NULL DEFAULT NULL,
-  `gender` ENUM('Male', 'Female', 'Unisex') NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
 
 
 -- -----------------------------------------------------
