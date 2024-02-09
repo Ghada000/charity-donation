@@ -3,9 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JavaScript
 import './css/Navbar.css';
 import Login from '../components/login';
+import ProgressBar from '../components/progressbar'; // Import ProgressBar component
 
 function Navbar(props) {
   const [showLogin, setShowLogin] = useState(false);
+  const [showProgressBar, setShowProgressBar] = useState(false); // State to control ProgressBar visibility
 
   const handleLoginClick = () => {
     setShowLogin(!showLogin);
@@ -15,6 +17,15 @@ function Navbar(props) {
   const handleCloseLogin = () => {
     setShowLogin(false);
     console.log("clicked");
+  };
+
+  // Function to toggle ProgressBar visibility
+  const toggleProgressBar = (view) => {
+    if (view === "MoneyDonation") {
+      setShowProgressBar(true);
+    } else {
+      setShowProgressBar(false);
+    }
   };
 
   return (
@@ -44,10 +55,12 @@ function Navbar(props) {
                   Donation
                 </a>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#" onClick={() => props.changeView("Hair")}>Hair donation</a></li>
-                  <li><a className="dropdown-item" href="#" onClick={() => props.changeView("Blood")}>Blood donation</a></li>
-                  <li><a className="dropdown-item" href="#" onClick={() => props.changeView("Clothes")}>Clothes</a></li>
-                  <li><a className="dropdown-item" href="#" onClick={() => props.changeView("Medicaments")}>Medicaments</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={() => { props.changeView("Hair"); toggleProgressBar("Hair"); }}>Hair donation</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={() => { props.changeView("Blood"); toggleProgressBar("Blood"); }}>Blood donation</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={() => { props.changeView("Clothes"); toggleProgressBar("Clothes"); }}>Clothes</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={() => { props.changeView("Medicaments"); toggleProgressBar("Medicaments"); }}>Medicaments</a></li>
+                  {/* Add a new button for money donation */}
+                  <li><a className="dropdown-item" href="#" onClick={() => { props.changeView("MoneyDonation"); toggleProgressBar("MoneyDonation"); }}>Money donation</a></li>
                 </ul>
               </li>
               <li className="nav-item dropdown">
@@ -64,6 +77,8 @@ function Navbar(props) {
         </div>
       </nav>
       {showLogin && <Login handleClose={handleCloseLogin} />}
+      {/* Render ProgressBar component only when showProgressBar state is true */}
+      {showProgressBar && <ProgressBar />}
     </>
   );
 }
