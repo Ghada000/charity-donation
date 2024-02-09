@@ -32,6 +32,18 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
+-- Table `donation`.`children`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `donation`.`children` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `image_url` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
 -- Table `donation`.`clothes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `donation`.`clothes` (
@@ -58,7 +70,23 @@ CREATE TABLE IF NOT EXISTS `donation`.`donations` (
   `donation_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 23
+AUTO_INCREMENT = 27
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `donation`.`events`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `donation`.`events` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255) NOT NULL,
+  `description` TEXT NULL DEFAULT NULL,
+  `date` DATE NULL DEFAULT NULL,
+  `location` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 

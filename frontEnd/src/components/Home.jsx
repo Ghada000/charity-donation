@@ -1,5 +1,4 @@
 
-// export default Home;
 import React from 'react';
 import './css/Home.css'
 import { FaMedal } from "react-icons/fa";

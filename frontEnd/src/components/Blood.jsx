@@ -1,7 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Blood({term}) {
+function Blood() {
     const [data, setData] = useState([]);
     const [newBloodType, setNewBloodType] = useState('');
     const [newImageUrl, setNewImageUrl] = useState('');
@@ -58,7 +59,6 @@ function Blood({term}) {
                     <h1>{item.blood_type}</h1>
                     <img src={item.image_url} alt={item.blood_type} />
                     <button onClick={() => handleDeleteBlood(item.id)}>Delete</button>
-                    {/* Update functionality could be added here */}
                 </div>
             ))}
 

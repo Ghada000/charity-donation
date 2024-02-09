@@ -1,20 +1,27 @@
-/* AdvancedLogin.css */
-
 .popup-content {
     text-align: center;
     padding: 20px;
+    position: absolute;
+    top: 70px;
+    z-index: 1000;
+    background-color: white;
+left: 1200px;
+width: 300px;
+height: 320px;
+border-radius: 10%;
+
   }
-  
+
   .popup-content h2 {
     margin-bottom: 20px;
     font-size: 24px;
   }
-  
+
   .user-box {
     position: relative;
     margin-bottom: 20px;
   }
-  
+
   .user-box label {
     position: absolute;
     top: 50%;
@@ -24,7 +31,7 @@
     color: #777;
     transition: all 0.3s ease;
   }
-  
+
   .user-box input {
     width: 100%;
     padding: 10px;
@@ -33,7 +40,7 @@
     border-radius: 4px;
     transition: border-color 0.3s ease;
   }
-  
+
   .user-box input:focus + label,
   .user-box input:not(:placeholder-shown) + label {
     font-size: 12px;
@@ -44,12 +51,12 @@
     padding: 0 5px;
     color: #007bff;
   }
-  
+
   .error-message {
     color: #ff3333;
     margin-top: 10px;
   }
-  
+
   .btn {
     padding: 10px 20px;
     font-size: 16px;
@@ -58,40 +65,44 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  
+
   .btn-register {
     background-color: #28a745;
     color: #fff;
   }
-  
+
   .btn-register:hover {
     background-color: #218838;
   }
-  
+
   .btn-login {
     background-color: #007bff;
     color: #fff;
   }
-  
+
   .btn-login:hover {
     background-color: #0056b3;
   }
-  
+
   .login-link,
   .register-link {
     margin-top: 10px;
     font-size: 14px;
   }
-  
+
   .login-link span,
   .register-link span {
     color: #007bff;
     cursor: pointer;
     transition: color 0.3s ease;
   }
-  
+
   .login-link span:hover,
   .register-link span:hover {
     color: #0056b3;
   }
-  
+
+ .iconLog {
+  margin-left: 230px;
+
+  }

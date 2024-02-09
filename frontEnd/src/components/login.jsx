@@ -1,8 +1,5 @@
-// Login.jsx
-
 import React, { useState } from 'react';
 import './css/Login.css'; // Import your advanced CSS file for styling
-
 const RegisterPage = ({ switchToLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

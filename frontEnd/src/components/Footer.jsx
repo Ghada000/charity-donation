@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
         <div>
           <i className="fa fa-envelope"></i>
-          <p><a href="mailto:jbeliRoudaina@gmail.com">support@donation</a></p>
+          <p><a href="mailto:jbeliRoudaina@gmail.com">ContactUs@donation</a></p>
         </div>
       </div>
 

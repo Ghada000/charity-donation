@@ -10,7 +10,7 @@ const ProgressBar = () => {
 
   const fetchTotalDonation = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/gett'); // Adjust the endpoint based on your backend route
+      const response = await axios.get('http://localhost:5000/donation/gett'); // Adjust the endpoint based on your backend route
       const { totalDonation } = response.data;
       setTotalDonation(totalDonation);
     } catch (error) {
@@ -29,7 +29,7 @@ const ProgressBar = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/api/donate', { amount: donationAmount, donorName });
+      const response = await axios.post('http://localhost:5000/donation/donate', { amount: donationAmount, donorName });
       console.log(response.data); // You can handle the response as needed
       // Refetch total donation after successful donation
       fetchTotalDonation();
