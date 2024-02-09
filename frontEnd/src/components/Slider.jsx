@@ -43,17 +43,17 @@ const Slider = () => {
                 </div>
             </Carousel.Item>
 
-            {/* <Carousel.Item className="slider-background4" interval={2000}>
+            { <Carousel.Item className="slider-background4" interval={2000}>
                 <div className="d-flex flex-row justify-content-center align-items-center">
                     <img
-                        style={{ height: "480px", width: "373.53px" }}
+                        style={{ height: "680px", width: "99%" }}
                         className=""
-                        src="https://outdoorishome.com/wp-content/uploads/2021/11/Hammocking-in-winter-e1636475924383.jpg"
+                        src="https://c0.wallpaperflare.com/preview/287/860/54/team-ethnicity-group-hands.jpg"
                         alt="First slide"
                     />
                  
                 </div>
-            </Carousel.Item> */}
+            </Carousel.Item> }
         </Carousel>
     )
 }
