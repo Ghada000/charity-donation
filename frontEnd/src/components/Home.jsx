@@ -1,51 +1,67 @@
-
 import React from 'react';
-import './css/Home.css'
+import './css/Home.css';
 import { FaMedal } from "react-icons/fa";
-import data from '../data.json'
-import Navbar from './Navbar';
+import data from '../data.json';
+import Slider from '../components/Slider'; // Import the Slider component
 
 function Home() {
   return (
     <div>
+      {/* Include the Slider component */}
+      <Slider />
 
-    <div className='nimg'>
-      <header  style={{ 
-        
-        backgroundImage: "url(https://static.ffx.io/images/$width_620%2C$height_349/t_crop_fill/q_86%2Cf_auto/e7ce6425ea128fb54abeb0b4e5191ef57e0944f0)", 
-        backgroundSize: 'cover', 
-        height: '673px',
-        boxShadow: 'inset rgb(0, 0, 0) 0px 126px 494px',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition:'center',
-        
-      }}>
+      <div className="childrenBoxes">
+        {/* First child box */}
+        <div className="childBox">
+          <img src="https://images.unsplash.com/photo-1632923057155-dd35366509ce?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBvb3J8ZW58MHx8MHx8fDA%3D" alt="Child 1" className="childImage" />
+          <div className="childDescription">
+            <h2>Child Name 1</h2>
+            <p>Description of the situation for Child 1...</p>
+          </div>
+        </div>
+        {/* Second child box */}
+        <div className="childBox">
+          <img src="https://images.unsplash.com/photo-1518949142393-f1d68174c92a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9vcnxlbnwwfHwwfHx8MA%3D%3D" alt="Child 2" className="childImage" />
+          <div className="childDescription">
+            <h2>Child Name 2</h2>
+            <p>Description of the situation for Child 2...</p>
+          </div>
+        </div>
+        {/* Third child box */}
+        <div className="childBox">
+          <img src="https://plus.unsplash.com/premium_photo-1682092588009-51eacb1d03ce?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHBvb3J8ZW58MHx8MHx8fDA%3D" alt="Child 3" className="childImage" />
+          <div className="childDescription">
+            <h2>Child Name 3</h2>
+            <p>Description of the situation for Child 3...</p>
+          </div>
+        </div>
+        {/* Fourth child box */}
+        <div className="childBox">
+          <img src="https://images.unsplash.com/photo-1635929114944-8bab23b98e74?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBvb3J8ZW58MHx8MHx8fDA%3D" alt="Child 4" className="childImage" />
+          <div className="childDescription">
+            <h2>Child Name 4</h2>
+            <p>Description of the situation for Child 4...</p>
+          </div>
+        </div>
+        {/* Add more child boxes as needed */}
+      </div>
 
-      </header>
-      <div className='bodyimg'>
-        <h1 className='nnn'>Let's Build The World Together</h1>
-        <br/>
-        <br/>
-        <h4 className='nnnn'>“Remember that the happiest people are not those getting more, but those giving more.</h4>        
+      <div>
+        <h1 className='donn'>Top donors</h1>
+        <div className='listDonation'>
+          {data.map((e,i)=>{
+            return (   
+              <div className='cardDonation' key={i}>
+                <img className='carddimg' src={e.img} alt="" />
+                <p className='NameDonation'>{e.name}</p >
+                <FaMedal fontSize={25} color='yellow'/>
+                <div className='TopOne'>  </div>
+                <p className='txtDonation'>{e.description} </p>
+              </div>
+            )
+          })}
+        </div>
       </div>
-    </div>
-    <div>
-      <h1 className='donn'>Top donaitors </h1>
-      <div className='listDonation'>
-        {data.map((e,i)=>{
-        return (   
-          <div className='cardDonation'>
-        <img  className='carddimg' src={e.img} alt="" />
-        <p className='NameDonation' >{e.name}</p >
-        <FaMedal fontSize={25} color='yellow'/>
-        <div className='TopOne'>  </div>
-        <p className='txtDonation'>{e.description} </p>
-      </div>
-        )
-      })}
-      </div>
-      
-    </div>
     </div>
   );
 }

@@ -102,4 +102,54 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding a shadow effect */
     /* You can adjust the shadow color, blur radius, and offset as needed */
   }
-  
+  /* Home.css */
+
+/* Home.css */
+/* Home.css */
+
+.childrenBoxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.childBox {
+  width: 280px;
+  height: 350px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Hide overflowing content */
+  transition: transform 0.3s ease;
+}
+
+.childBox:hover {
+  transform: translateY(-5px); /* Lift the box slightly on hover */
+}
+
+.childImage {
+  width: 100%;
+  height: 200px; /* Adjust height as needed */
+  object-fit: cover; /* Ensure image covers the box */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.childDescription {
+  padding: 15px;
+}
+
+.childDescription h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.childDescription p {
+  font-size: 14px;
+  color: #666;
+}
