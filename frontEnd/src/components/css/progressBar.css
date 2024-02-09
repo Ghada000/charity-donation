@@ -16,6 +16,19 @@
     overflow: hidden;
     margin-bottom: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    animation: borderAnimation 2s ease infinite; /* Border animation */
+  }
+  
+  @keyframes borderAnimation {
+    0% {
+      border: 2px solid #007bff; /* Blue border */
+    }
+    50% {
+      border: 2px solid #4CAF50; /* Green border */
+    }
+    100% {
+      border: 2px solid #ff6b6b; /* Red border */
+    }
   }
   
   .progressBarFill {
@@ -26,7 +39,17 @@
     background-color: #4CAF50; /* Green */
     border-radius: 10px;
     width: 0; /* Initially set width to 0 */
-    transition: width 0.5s ease; /* Add transition for smooth animation */
+    transition: width 0.5s ease, background-color 0.5s ease; /* Add transition for smooth animation */
+    animation: fillAnimation 2s ease infinite alternate; /* Fill animation */
+  }
+  
+  @keyframes fillAnimation {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
   }
   
   .progressBar:hover .progressBarFill {
@@ -34,17 +57,25 @@
   }
   
   .progressBarText {
-    color: #fff; /* White */
+    color: #333; /* Dark gray */
     font-weight: bold;
     font-size: 14px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: color 0.3s ease; /* Add transition for smoother color change */
+  }
+  
+  .progressBar:hover .progressBarText {
+    color: #007bff; /* Blue on hover */
   }
   
   .formGroup {
-    margin-bottom: 15px;
+    margin-bottom: 1px;
+    width: 300px;
+    position: relative;
+    left: 500px;
   }
   
   .formLabel {
@@ -67,21 +98,69 @@
   }
   
   .donateButton {
-    background-color: #007bff; /* Blue */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
+    appearance: button;
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
     display: inline-block;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for smoother button hover */
+    font-family: din-round,sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 13px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 10%;
+    position: relative;
+    left: 550px;
+    top: 20px;
   }
   
   .donateButton:hover {
     background-color: #0056b3; /* Darker blue */
     transform: scale(1.05); /* Increase size on hover */
   }
-  
-  
+.donateButton:after {
+  background-clip: padding-box;
+  background-color: #1CB0F6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+.donateButton:main,
+.donateButton:focus {
+  user-select: auto;
+}
+.donateButton:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+.donateButton:disabled {
+  cursor: auto;
+}
+.donateButton:active {
+  border-width: 4px 0 0;
+  background: none;
+}

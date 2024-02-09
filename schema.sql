@@ -32,21 +32,6 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `donation`.`campaigns`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `donation`.`campaigns` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NOT NULL,
-  `goal` DECIMAL(10,2) NOT NULL,
-  `progress` DECIMAL(10,2) NOT NULL DEFAULT '0.00',
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
 -- Table `donation`.`clothes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `donation`.`clothes` (
@@ -64,50 +49,16 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `donation`.`userss`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `donation`.`userss` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(255) NOT NULL,
-  `email` VARCHAR(255) NOT NULL,
-  `password` VARCHAR(255) NOT NULL,
-  `full_name` VARCHAR(255) NULL DEFAULT NULL,
-  `birthdate` DATE NULL DEFAULT NULL,
-  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `username` (`username` ASC) VISIBLE,
-  UNIQUE INDEX `email` (`email` ASC) VISIBLE)
-ENGINE = InnoDB
-AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
 -- Table `donation`.`donations`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `donation`.`donations` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `userId` INT NOT NULL,
-  `campaignId` INT NOT NULL,
   `amount` DECIMAL(10,2) NOT NULL,
-  `createdAt` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  INDEX `userId` (`userId` ASC) VISIBLE,
-  INDEX `campaignId` (`campaignId` ASC) VISIBLE,
-  CONSTRAINT `fk_campaign_id`
-    FOREIGN KEY (`campaignId`)
-    REFERENCES `donation`.`campaigns` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_user_id`
-    FOREIGN KEY (`userId`)
-    REFERENCES `donation`.`userss` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+  `donor_name` VARCHAR(255) NULL DEFAULT NULL,
+  `donation_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 23
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
