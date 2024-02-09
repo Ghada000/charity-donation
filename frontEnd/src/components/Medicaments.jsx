@@ -223,12 +223,12 @@ function Medicaments() {
 
     axios.post('http://localhost:5000/medicaments/add', newMedicament)
       .then(res => {
-        setData([...data, res.data]); // Update state with the new data
+        setData([...data, res.data]); 
         setName('');
         setImage_url('');
         setDescription('');
         setCategory('');
-        setInput(false); // Close the input fields after adding
+        setInput(false); 
       })
       .catch(error => {
         console.log(error);

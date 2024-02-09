@@ -25,7 +25,7 @@ const EventController = {
   },
   
   createEvent: (req, res) => {
-    const EventData = req.body;
+    const EventData = req.body
     Event.create(EventData, (err, result) => {
       if (err) {
         res.status(500).json({ message: 'Internal server error' });
