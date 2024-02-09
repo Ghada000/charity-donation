@@ -91,35 +91,35 @@ function Clothes() {
 
   return (
     <div className="clothes-container">
-      {data.map((item) => (
-        <div key={item.id} className="clothes-card">
-          <img src={item.image_url} alt={`Clothes ${item.id}`} />
-          <div className='class'>
-            <div className='unique'>
-            
-              <h2>{item.name}</h2>
-              <h2>{item.size}</h2>
-             
-            </div>
-            <div className='btnn'>
-              <button className="update-btn" onClick={() => handleUpdateClick(item.id)}>Edit</button>
-              <button className="delete-btn" onClick={() => handleDelete(item.id)}>Delete</button>
+      <h1 className="title">Browse Our Collection</h1>
+      <div className="clothes-grid">
+        {data.map((item) => (
+          <div key={item.id} className="clothes-card">
+            <img src={item.image_url} alt={`Clothes ${item.id}`} />
+            <div className="details">
+              <h2 className="name">{item.name}</h2>
+              <p className="description">Season: {item.season}</p>
+              <p className="description">Size: {item.size}</p>
+              <p className="description">Gender: {item.gender}</p>
+              <div className="buttons">
+                <button className="update-btn" onClick={() => handleUpdateClick(item.id)}>Edit</button>
+                <button className="delete-btn" onClick={() => handleDelete(item.id)}>Delete</button>
+              </div>
             </div>
             {editingId === item.id && (
-              <>
+              <div className="edit-form">
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
                 <input type="text" value={image_url} onChange={(e) => setImage_url(e.target.value)} />
                 <input type="text" value={size} onChange={(e) => setSize(e.target.value)} />
                
                 <button onClick={() => handleUpdate(item.id)}>Update</button>
-              </>
+              </div>
             )}
           </div>
-        </div>
-      ))}
-      
+        ))}
+      </div>
       <div className="add-container">
-        <button onClick={() => setInput(!input)}>Add Clothes</button>
+        <button className="add-btn" onClick={() => setInput(!input)}>Add Clothes</button>
         {input && (
           <div className="input-fields">
             <input
@@ -139,7 +139,7 @@ function Clothes() {
               value={size}
               onChange={(event) => setSize(event.target.value)}
             />
-            <button onClick={handleAdd} disabled={!isFormValid}>Add</button>
+            <button className="add-btn" onClick={handleAdd} disabled={!isFormValid}>Add</button>
           </div>
         )}
       </div>
