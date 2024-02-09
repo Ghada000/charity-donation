@@ -41,9 +41,8 @@ function Hair() {
                     <div className='video-container'>
                         <iframe 
                             className='video-iframe'
-                            src={item.video_url.replace("watch?v=", "embed/")} 
+                            src={item.video_url.replace("watch?v=", "embed/")}
                             title="Hair Donation Video" 
-                            frameBorder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowFullScreen
                         ></iframe>

@@ -13,7 +13,7 @@ module.exports = {
       callback(err, results);
     });
   },
-  addOne: (data, callback) => {
+  create: (data, callback) => {
     const sql = 'INSERT INTO events SET ?';
     connection.query(sql, data, (err, results) => {
       callback(err, results);
