@@ -1,109 +1,96 @@
-/* Enhanced CSS for Clothes component */
+/* Add your CSS styles here */
+
 .clothes-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.clothes-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
+  justify-content: space-between;
 }
 
 .clothes-card {
-  width: 300px;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  background-color: #fff;
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .clothes-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .clothes-card img {
   width: 100%;
-  border-radius: 12px;
+  height: 200px;
   object-fit: cover;
 }
 
-.unique {
-  display: flex;
-  justify-content: space-between;
+.details {
+  padding: 10px;
 }
 
-.class {
+.name {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.description {
+  margin-bottom: 5px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
   margin-top: 10px;
 }
 
-.btnn {
-  display: flex;
-  justify-content: space-around;
-}
-
-.update-btn, .delete-btn {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.update-btn:hover, .delete-btn:hover {
-  background-color: #2980b9;
+.edit-form {
+  margin-top: 10px;
 }
 
 .add-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.add-container button {
-  padding: 12px 24px;
-  background-color: #2ecc71;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.add-container button:hover {
-  background-color: #27ae60;
+  margin-top: 20px;
 }
 
 .input-fields {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
 }
 
 .input-fields input {
-  padding: 12px;
-  width: 80%;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  margin-bottom: 10px;
 }
 
-.input-fields button {
-  padding: 14px 28px;
-  background-color: #2ecc71;
-  color: white;
+.add-btn {
+  background-color: #007bff;
+  color: #fff;
   border: none;
-  border-radius: 6px;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.input-fields button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
+.update-btn{
+  background-color: rgb(104, 219, 104);
 }
-
-.input-fields button:hover {
-  background-color: #27ae60;
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
