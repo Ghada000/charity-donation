@@ -1,6 +1,9 @@
+
+
 import React, { useState } from 'react';
 import './css/Navbar.css';
 import Login from '../components/login';
+import pict from '../pictures/LOGO.png'
 import ProgressBar from '../components/progressbar'; // Import ProgressBar component
 
 function Navbar(props) {
@@ -30,7 +33,7 @@ function Navbar(props) {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Navbar</a>
+        <img src={pict} alt="" />
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
