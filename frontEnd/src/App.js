@@ -108,8 +108,8 @@ function App() {
   };
   return (
     <div>
-            <Navbar changeView={changeView} set={setTerm}/>
-    {view==="Home" && <Home   changeView={changeView}/>}
+    <Navbar changeView={changeView} set={setTerm}/>
+    {view==="Home" && <Home   term={term} changeView={changeView}/>}
     {view==="Hair" && <Hair  term={term} changeView={changeView}/>}
     {view==="Blood" && <Blood  term={term} changeView={changeView}/>}
     {view==="Clothes" && <Clothes term={term} changeView={changeView}/>}
