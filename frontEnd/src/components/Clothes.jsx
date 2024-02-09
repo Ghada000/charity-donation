@@ -75,16 +75,12 @@ function Clothes() {
       size: size,
       gender: gender
     };
+    console.log(newClothes);
     axios.post('http://localhost:5000/clothes/add', newClothes)
       .then(res => {
         console.log(res.data);
-        setImage_url('');
-        setSize('');
-        setName('');
-        setSeason('');
-        setGender('');
-        setInput(false); // Close the input fields after adding
         setData([...data, res.data]); // Add the newly added data to the state
+        setInput(false); // Close the input fields after adding
       })
       .catch(error => {
         console.log(error);
@@ -96,40 +92,34 @@ function Clothes() {
   return (
     <div className="clothes-container">
       {data.map((item) => (
-        <div>
         <div key={item.id} className="clothes-card">
           <img src={item.image_url} alt={`Clothes ${item.id}`} />
           <div className='class'>
-          <div className='unique'>
-          <h2>{item.season}</h2>
-          <h2>{item.name}</h2>
-          <h2>{item.size}</h2>
-          <h2>{item.gender}</h2>
+            <div className='unique'>
+              <h2>{item.season}</h2>
+              <h2>{item.name}</h2>
+              <h2>{item.size}</h2>
+              <h2>{item.gender}</h2>
+            </div>
+            <div className='btnn'>
+              <button className="update-btn" onClick={() => handleUpdateClick(item.id)}>Edit</button>
+              <button className="delete-btn" onClick={() => handleDelete(item.id)}>Delete</button>
+            </div>
+            {editingId === item.id && (
+              <>
+                <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                <input type="text" value={image_url} onChange={(e) => setImage_url(e.target.value)} />
+                <input type="text" value={size} onChange={(e) => setSize(e.target.value)} />
+                <input type="text" value={gender} onChange={(e) => setGender(e.target.value)} />
+                <button onClick={() => handleUpdate(item.id)}>Update</button>
+              </>
+            )}
           </div>
-          <div>
-
-          <button onClick={() => handleUpdateClick(item.id)}>Edit</button>
-          <button onClick={() => handleDelete(item.id)}>Delete</button>
-          </div>
-
-          </div>
-
-          </div>
-          {editingId === item.id ? (
-            <>
-              <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-              <input type="text" value={image_url} onChange={(e) => setImage_url(e.target.value)} />
-              <input type="text" value={size} onChange={(e) => setSize(e.target.value)} />
-              <input type="text" value={gender} onChange={(e) => setGender(e.target.value)} />
-              <button onClick={() => handleUpdate(item.id)}>Update</button>
-            </>
-          ) : (          null )}
-
-</div>
-          ))}
-     
+        </div>
+      ))}
+      
       <div className="add-container">
-        <button onClick={() => setInput(true)}>Add</button>
+        <button onClick={() => setInput(!input)}>Add Clothes</button>
         {input && (
           <div className="input-fields">
             <input
@@ -157,7 +147,7 @@ function Clothes() {
               value={size}
               onChange={(event) => setSize(event.target.value)}
             />
-            <button onClick={handleAdd} disabled={!isFormValid}>Add Clothes</button>
+            <button onClick={handleAdd} disabled={!isFormValid}>Add</button>
           </div>
         )}
       </div>
