@@ -40,7 +40,7 @@ function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#" onClick={() => props.changeView("home")}>Home</a>
+              <a className="nav-link active" aria-current="page" href="#" onClick={() => props.changeView("Home")}>Home</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#" onClick={() => props.changeView("FAQ")}>FAQ</a>
@@ -60,7 +60,6 @@ function Navbar(props) {
                   <li><a className="dropdown-item" href="#" onClick={() => { props.changeView("Blood"); toggleProgressBar("Blood"); }}>Blood donation</a></li>
                   <li><a className="dropdown-item" href="#" onClick={() => { props.changeView("Clothes"); toggleProgressBar("Clothes"); }}>Clothes</a></li>
                   <li><a className="dropdown-item" href="#" onClick={() => { props.changeView("Medicaments"); toggleProgressBar("Medicaments"); }}>Medicaments</a></li>
-                  {/* Add a new button for money donation */}
                   <li><a className="dropdown-item" href="#" onClick={() => { props.changeView("MoneyDonation"); toggleProgressBar("MoneyDonation"); }}>Money donation</a></li>
                 </ul>
               </li>
