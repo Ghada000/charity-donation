@@ -63,14 +63,14 @@ Despite the significant progress made in Tunisia concerning childrens health, it
       <input
         type="file"
         onChange={handleFileChange}
-      />
+      className='btn  m-3'/>
       <br />
-      <button onClick={uploadImage} className='btnn'>Upload!</button>
+      <button onClick={uploadImage} className='btn btn-primary m-3'>Upload!</button>
 
-      {url && <img src={url} alt="Uploaded" />} {/* Render the image if URL is not empty */}
+      {/* {url && <img src={url} alt="Uploaded" />}  */}
 
       
-      <div>
+      <div className='container-img'>
         {images.map((image, index) => (
           <img className='imgg' key={index} src={image.image_url} alt={`Uploaded ${index}`} />
         ))}

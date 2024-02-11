@@ -73,6 +73,7 @@ body{
   margin-left: 14%;
   margin-right: 14%;
   margin-top: 3%;
+  padding: 20px;
 }
 
 .para::first-letter {
@@ -93,6 +94,15 @@ body{
 
 .cc {
   text-align: center;
+}
+.container-img{
+  display: grid ;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px ;
+  row-gap: 20px;
 }
 
 
@@ -142,7 +152,10 @@ body{
 }
 
 .video-container {
-  margin-bottom: 20px;
+  height: 70vh;
+  width: 50vw;
+  margin: 20px auto; 
+  
 }
 
 .video-iframe {
@@ -288,4 +301,10 @@ body{
 
 .card-body button {
   margin-left: 3%;
+}
+.blood-container{
+  display: grid ;
+  grid-template-columns: repeat(auto-fill, minmax(350px,1fr));
+  
+
 }

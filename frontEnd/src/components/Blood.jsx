@@ -3,6 +3,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from 'react-bootstrap';
 
+
 function Blood() {
     const [data, setData] = useState([]);
     const [newBloodType, setNewBloodType] = useState('');
@@ -54,8 +55,9 @@ function Blood() {
     return (
         <div className="container mt-5">
             <h2 className="mb-4 title">Blood Types</h2>
+            <div className='blood-container'>
                 {data.map((item) => (
-        <div key={item.id} className="card mb-3">
+                <div key={item.id} className="card mb-3">
         <div className="card-body">
             <h1 className="card-title">{item.blood_type}</h1>
             <img src={item.image_url} alt={item.blood_type} className="img-fluid mb-3" />
@@ -63,9 +65,10 @@ function Blood() {
         </div>
     </div>
 ))}
+</div>
 
             
-            <h2 className="mt-4">Add New Blood Type</h2>
+            <h2 className="but mt-3">Add New Blood Type</h2>
             <button className="btn btn-primary" onClick={() => setShowModal(true)}>Add Blood Type</button>
 
             <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -84,7 +87,7 @@ function Blood() {
                     <Button variant="secondary" onClick={() => setShowModal(false)}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleAddBlood}>
+                    <Button variant="but" onClick={handleAddBlood}>
                         Add Blood Type
                     </Button>
                 </Modal.Footer>
