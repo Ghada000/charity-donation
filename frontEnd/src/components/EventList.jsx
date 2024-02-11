@@ -113,7 +113,7 @@ const EventList = ({ onViewDetails }) => {
                 onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
               />
               <label htmlFor="modalTitle">date:</label>
-               <input
+              <input
                 type="text"
                 className="form-control"
                 id="modalTitle"
@@ -121,7 +121,7 @@ const EventList = ({ onViewDetails }) => {
                 onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
               />
               <label htmlFor="modalTitle">location:</label>
-               <input
+              <input
                 type="text"
                 className="form-control"
                 id="modalTitle"

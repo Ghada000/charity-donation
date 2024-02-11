@@ -6,6 +6,7 @@ function Clothes() {
   const [data, setData] = useState([]);
   const [name, setName] = useState('');
   const [image_url, setImage_url] = useState('');
+  const [description, setdescription] = useState('');
   const [input, setInput] = useState(false);
   const [editingId, setEditingId] = useState(null);
 
@@ -37,6 +38,7 @@ function Clothes() {
     const selectedClothes = data.find(item => item.id === id);
     setName(selectedClothes.name);
     setImage_url(selectedClothes.image_url);
+    setdescription(selectedClothes.description);
   };
 
   const handleUpdate = async (id) => {
@@ -44,7 +46,7 @@ function Clothes() {
       const response = await axios.put(`http://localhost:5000/clothes/${id}`, {
         name: name,
         image_url: image_url,
-
+        description:description
       });
       const updatedData = data.map(item => {
         if (item.id === id) {
@@ -56,6 +58,7 @@ function Clothes() {
       setEditingId(null);
       setImage_url('');
       setName('');
+      setdescription('');
     } catch (error) {
       console.error('Error updating data:', error);
     }
@@ -64,6 +67,7 @@ function Clothes() {
     const newClothes = {
       name: name,
       image_url: image_url,
+      description:description
     };
 
     axios.post('http://localhost:5000/clothes/add', newClothes)
@@ -118,6 +122,11 @@ function Clothes() {
               placeholder="ImageUrl"
               value={image_url}
               onChange={(event) => setImage_url(event.target.value)}/>
+            <input
+              placeholder="description"
+              value={description}
+              onChange={(event) => setdescription(event.target.value)}
+            />
             <button className="add-btn" onClick={handleAdd} disabled={!isFormValid}>Add</button>
           </div>
         )}
