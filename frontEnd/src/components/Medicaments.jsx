@@ -1,8 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 import '../App.css'
 import './css/Medicament.css'
+import { Button, Modal } from 'react-bootstrap';
 
 function Medicaments() {
   const [data, setData] = useState([]);
@@ -97,17 +99,40 @@ function Medicaments() {
         <h2 className='category'>{item.category}</h2>
         <h2 className='name'>{item.name}</h2>
         <h2 className='description'>{item.description}</h2>
-        <img className='taswira' src={item.image_url} alt={`Article ${item.id}`} />
+        <img className='taswira' src={item.image_url} alt={`Article ${item.id}`}/>
         
-        <div className="button-container"> {/* Wrap the buttons in a div */}
+        <div className="button-container"> 
           {editingId === item.id ? (
-            <>
-              <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-              <input type="text" value={image_url} onChange={(e) => setImage_url(e.target.value)} />
-              <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
-              <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
-              <button onClick={() => handleUpdate(item.id)}>Update</button>
-            </>
+
+<Modal
+show={true}
+size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Body className='d-flex flex-column'>
+        <label className='row' >
+          <span className='col-4'>Update Name:</span>
+      <input className='col-8' type="text" value={name} onChange={(e) => setName(e.target.value)} />
+              </label>
+              <label className='row'>
+              <span className='col-4'>Update image_url:</span>
+              <input className='col-8' type="text" value={image_url} onChange={(e) => setImage_url(e.target.value)} />
+              </label>
+              <label className='row' >
+              <span className='col-4'>Update description:</span>
+              <input  className='col-8' type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+              </label>
+              <label className='row' >
+              <span className='col-4'>Update category:</span>
+              <input className='col-8' type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
+              </label>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={()=>setEditingId(null)}>Close</Button>
+        <Button onClick={() => handleUpdate(item.id)}>Update</Button>
+      </Modal.Footer>
+    </Modal>
           ) : (
             <button className='felsa' onClick={() => handleUpdateClick(item.id)}>Update</button>
           )}
