@@ -4,7 +4,7 @@ import { Modal, Button } from 'react-bootstrap';
 
 const EventList = ({ onViewDetails }) => {
   const [events, setEvents] = useState([]);
-  const [newEvent, setNewEvent] = useState({ title: '', image: '' });
+  const [newEvent, setNewEvent] = useState({ title: '', image: '', description: '', date: '', location: '',image:' '});
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -55,7 +55,14 @@ const EventList = ({ onViewDetails }) => {
   };
 
   const handleAdd = () => {
+    // Check if all required fields are provided
+    if (!newEvent.title || !newEvent.image || !newEvent.description || !newEvent.date || !newEvent.location) {
+      console.error('All fields (title, image, description, date, location) are required for adding an event');
+      return;
+    }
+  
     console.log('Adding event:', newEvent);
+  
     fetch('http://localhost:5000/event/add', {
       method: 'POST',
       headers: {
@@ -69,7 +76,7 @@ const EventList = ({ onViewDetails }) => {
       })
       .then(data => {
         console.log('Server response:', data);
-        setNewEvent({ title: '', image: '' });
+        setNewEvent({ title: '', image: '', description: '', date: '', location: '' });
         fetchEvents();
         handleClose();
       })
@@ -82,8 +89,6 @@ const EventList = ({ onViewDetails }) => {
     <div>
       <div className="mb-3">
         <button className="btn btn-primary" onClick={handleShow}> Add Event</button>
-
-        {/* Modal for adding events */}
         <Modal show={showModal} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Add New Event</Modal.Title>
@@ -98,6 +103,30 @@ const EventList = ({ onViewDetails }) => {
                 id="modalTitle"
                 value={newEvent.title}
                 onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
+              />
+                <label htmlFor="modalTitle">description:</label>
+              <input
+                type="text"
+                className="form-control"
+                id="modalTitle"
+                value={newEvent.description}
+                onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
+              />
+              <label htmlFor="modalTitle">date:</label>
+               <input
+                type="text"
+                className="form-control"
+                id="modalTitle"
+                value={newEvent.date}
+                onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
+              />
+              <label htmlFor="modalTitle">location:</label>
+               <input
+                type="text"
+                className="form-control"
+                id="modalTitle"
+                value={newEvent.location}
+                onChange={(e) => setNewEvent({ ...newEvent, location: e.target.value })}
               />
             </div>
             <div className="form-group">
