@@ -94,7 +94,6 @@ const EventList = ({ onViewDetails }) => {
             <Modal.Title>Add New Event</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {/* Form inside the modal */}
             <div className="form-group">
               <label htmlFor="modalTitle">Title:</label>
               <input
@@ -153,21 +152,21 @@ const EventList = ({ onViewDetails }) => {
 
       <div className="row">
         {events.map((ele, i) => (
-          <div key={i} className="col-md-4 mb-3">
-            <div className="card">
+          <div key={i} className="col-md-3 mb-3">
+            <div className="card h-100 ">
               <img
                 className='card-img-top'
                 src={ele.image}
                 alt="Event Image"
                 style={{ width: '100%', height: '188px', objectFit: 'cover' }}
               />
-              <div className="card-body">
+              <div className="card-body d-flex flex-column justify-content-between align-items-center">
                 <h5 className="card-title">{ele.title}</h5>
-                <button className="btn btn-danger mr-2" onClick={() => handleDelete(ele.id)}>
+                <button className="btn btn-danger"  style={{width:"100%"}}onClick={() => handleDelete(ele.id)}>
                   Delete
                 </button>
                 <button
-                  className="btn btn-warning"
+                  className="btn btn-success" style={{width:"100%"}}
                   onClick={() => {
                     const updatedTitle = prompt('Enter updated title:', ele.title);
                     const updatedImage = prompt('Enter updated image URL:', ele.image);
@@ -177,7 +176,7 @@ const EventList = ({ onViewDetails }) => {
                 >
                   Update
                 </button>
-                <button className="btn btn-info ml-2" onClick={() => onViewDetails(ele)}>
+                <button className="btn btn-primary" style={{width:"100%"}} onClick={() => onViewDetails(ele)}>
                   Details
                 </button>
               </div>
@@ -188,5 +187,4 @@ const EventList = ({ onViewDetails }) => {
     </div>
   );
 };
-
 export default EventList;
