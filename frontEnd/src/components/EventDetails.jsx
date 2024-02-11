@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/Event.css';
 
 const EventDetails = ({ event, onBackToList }) => {
   return (

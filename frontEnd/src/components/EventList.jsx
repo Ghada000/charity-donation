@@ -125,3 +125,6 @@ const EventList = ({ onViewDetails }) => {
 };
 
 export default EventList;
+
+
+
