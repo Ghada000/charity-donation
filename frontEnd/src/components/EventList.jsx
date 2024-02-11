@@ -42,6 +42,8 @@ const EventList = ({ onViewDetails }) => {
   };
 
   const handleAdd = () => {
+    console.log('Adding event:', newEvent);
+  
     fetch('http://localhost:5000/event/add', {
       method: 'POST',
       headers: {
@@ -49,11 +51,17 @@ const EventList = ({ onViewDetails }) => {
       },
       body: JSON.stringify(newEvent),
     })
-      .then(response => response.json())
+      .then(response => {
+        console.log('Response status:', response.status);
+        return response.json();
+      })
       .then(data => {
-        console.log(data); // Log the response
-        setNewEvent({ title: '', image: '' }); // Clear the new event form
-        fetchEvents(); // Update the events after adding
+        console.log('Server response:', data);
+        setNewEvent({ title: '', image: '' });
+        fetchEvents();
+      })
+      .catch(error => {
+        console.error('Error adding event:', error.message);
       });
   };
 
