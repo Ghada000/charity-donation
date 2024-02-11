@@ -31,12 +31,11 @@ function Hair() {
 
     return (
         <div className='cc'>
-            <h2 className='titre'>Step-by-Step Guide</h2>
-            <h3 className='soustitre'>Attention Superhairoes! Below you will find a simple four-step guide to show you the perfect way to give Hair and Hope to children and young people with cancer.</h3>
-
+            <h2 className='titre p-2'>Step-by-Step Guide</h2>
+            <h3 className='soustitre para'>Attention Superhairoes! Below you will find a simple four-step guide to show you the perfect way to give Hair and Hope to children and young people with cancer.</h3>
             {data.map((item, index) => (
                 <div key={item.donation_id} className='step-container'>
-                    <h3 className='video'>{item.video_description}</h3>
+                    <h3 className='video p-2 '>{item.video_description}</h3>
                     <div className='video-container'>
                         <ReactPlayer
                             url={item.video_url.replace("watch?v=", "embed/")}

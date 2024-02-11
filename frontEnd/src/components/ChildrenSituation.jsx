@@ -63,7 +63,7 @@ Despite the significant progress made in Tunisia concerning childrens health, it
       <input
         type="file"
         onChange={handleFileChange}
-      className='btn btn-primary m-3'/>
+      className='btn  m-3'/>
       <br />
       <button onClick={uploadImage} className='btn btn-primary m-3'>Upload!</button>
 
