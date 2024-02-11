@@ -90,8 +90,7 @@ function Medicaments() {
       });
   };
 
-  const isFormValid = name && image_url && description && category;
-
+  const isFormValid = name && image_url && description && category&&!editingId
   return (
     <div className='con'>
     {data.map((item) => (
@@ -100,32 +99,30 @@ function Medicaments() {
         <h2 className='name'>{item.name}</h2>
         <h2 className='description'>{item.description}</h2>
         <img className='taswira' src={item.image_url} alt={`Article ${item.id}`}/>
-        
-        <div className="button-container"> 
+        <div className="button-container">
           {editingId === item.id ? (
 
 <Modal
 show={true}
 size="lg"
       aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Body className='d-flex flex-column'>
+      centered>
+      <Modal.Body className='d-flex flex-column gap-2 p-3'>
         <label className='row' >
-          <span className='col-4'>Update Name:</span>
-      <input className='col-8' type="text" value={name} onChange={(e) => setName(e.target.value)} />
+          <span className='col-4 fw-bold'>Update Name:</span>
+      <input className='col-8 form-control' type="text" value={name} onChange={(e) => setName(e.target.value)} />
               </label>
               <label className='row'>
-              <span className='col-4'>Update image_url:</span>
-              <input className='col-8' type="text" value={image_url} onChange={(e) => setImage_url(e.target.value)} />
+              <span className='col-4 fw-bold'>Update image_url:</span>
+              <input className='col-8 form-control' type="text" value={image_url} onChange={(e) => setImage_url(e.target.value)} />
               </label>
               <label className='row' >
-              <span className='col-4'>Update description:</span>
-              <input  className='col-8' type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+              <span className='col-4 fw-bold'>Update description:</span>
+              <input  className='col-8 form-control' type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
               </label>
               <label className='row' >
-              <span className='col-4'>Update category:</span>
-              <input className='col-8' type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
+              <span className='col-4 fw-bold'>Update category:</span>
+              <input className='col-8 form-control' type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
               </label>
       </Modal.Body>
       <Modal.Footer>
