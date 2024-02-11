@@ -4,15 +4,17 @@ import './css/Clothes.css';
 
 function Clothes() {
   const [data, setData] = useState([]);
-  const [name, setName] = useState("");
-  const [image_url, setImage_url] = useState("");
-  const [season, setSeason] = useState("");
-  const [size, setSize] = useState("");
-  const [gender, setGender] = useState("");
+  const [name, setName] = useState('');
+  const [image_url, setImage_url] = useState('');
+  const [description, setDescription] = useState('');
   const [input, setInput] = useState(false);
   const [editingId, setEditingId] = useState(null);
 
   useEffect(() => {
+    fetchData();
+  }, [editingId]); // Added editingId as a dependency to refresh data after an update
+
+  const fetchData = () => {
     axios.get('http://localhost:5000/clothes/getAll')
       .then(function (response) {
         setData(response.data);
@@ -20,7 +22,7 @@ function Clothes() {
       .catch(function (error) {
         console.log(error);
       });
-  }, []);
+  };
 
   const handleDelete = (id) => {
     axios.delete(`http://localhost:5000/clothes/${id}`)
@@ -36,58 +38,54 @@ function Clothes() {
     const selectedClothes = data.find(item => item.id === id);
     setName(selectedClothes.name);
     setImage_url(selectedClothes.image_url);
-    setSeason(selectedClothes.season);
-    setSize(selectedClothes.size);
-    setGender(selectedClothes.gender);
+    setDescription(selectedClothes.description);
   };
 
   const handleUpdate = (id) => {
     axios.put(`http://localhost:5000/clothes/${id}`, {
       name: name,
       image_url: image_url,
-      season: season,
-      size: size,
-      gender: gender
+      description: description,
     })
-      .then(() => {
+      .then((response) => {
         const updatedData = data.map(item => {
           if (item.id === id) {
-            return { ...item, name: name, image_url: image_url, season: season, size: size, gender: gender };
+            return response.data; 
           }
           return item;
         });
         setData(updatedData);
         setEditingId(null);
         setImage_url('');
-        setSize('');
         setName('');
-        setSeason('');
-        setGender('');
+        setDescription('');
       })
       .catch(err => console.log(err));
   };
+  
 
   const handleAdd = () => {
     const newClothes = {
       name: name,
       image_url: image_url,
-      season: season,
-      size: size,
-      gender: gender
+      description: description,
     };
-    console.log(newClothes);
+
     axios.post('http://localhost:5000/clothes/add', newClothes)
       .then(res => {
-        console.log(res.data);
-        setData([...data, res.data]); // Add the newly added data to the state
-        setInput(false); // Close the input fields after adding
+        setInput(false);
+        fetchData(); // Refresh data after successful addition
+        // Reset form fields
+        setName('');
+        setImage_url('');
+        setDescription('');
       })
       .catch(error => {
         console.log(error);
       });
   };
 
-  const isFormValid = name && image_url && season && size && gender;
+  const isFormValid = name && image_url && description;
 
   return (
     <div className="clothes-container">
@@ -98,9 +96,7 @@ function Clothes() {
             <img src={item.image_url} alt={`Clothes ${item.id}`} />
             <div className="details">
               <h2 className="name">{item.name}</h2>
-              <p className="description">Season: {item.season}</p>
-              <p className="description">Size: {item.size}</p>
-              <p className="description">Gender: {item.gender}</p>
+              <p className="description">Description: {item.description}</p>
               <div className="buttons">
                 <button className="update-btn" onClick={() => handleUpdateClick(item.id)}>Edit</button>
                 <button className="delete-btn" onClick={() => handleDelete(item.id)}>Delete</button>
@@ -110,8 +106,7 @@ function Clothes() {
               <div className="edit-form">
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
                 <input type="text" value={image_url} onChange={(e) => setImage_url(e.target.value)} />
-                <input type="text" value={size} onChange={(e) => setSize(e.target.value)} />
-                <input type="text" value={gender} onChange={(e) => setGender(e.target.value)} />
+                <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
                 <button onClick={() => handleUpdate(item.id)}>Update</button>
               </div>
             )}
@@ -133,19 +128,9 @@ function Clothes() {
               onChange={(event) => setImage_url(event.target.value)}
             />
             <input
-              placeholder="Season"
-              value={season}
-              onChange={(event) => setSeason(event.target.value)}
-            />
-            <input
-              placeholder="Gender"
-              value={gender}
-              onChange={(event) => setGender(event.target.value)}
-            />
-            <input
-              placeholder="Size"
-              value={size}
-              onChange={(event) => setSize(event.target.value)}
+              placeholder="Description"
+              value={description}
+              onChange={(event) => setDescription(event.target.value)}
             />
             <button className="add-btn" onClick={handleAdd} disabled={!isFormValid}>Add</button>
           </div>

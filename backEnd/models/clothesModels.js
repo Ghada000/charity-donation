@@ -18,9 +18,9 @@ module.exports = {
 
   updateClothes: function(id, myData, callback) {
     const sql = 'UPDATE `clothes` SET ? WHERE id = ?';
-    const { name, image_url, season, size, gender } = myData;
+    const { name, image_url, description } = myData;
 
-    connection.query(sql, [{ name, image_url, season, size, gender }, id], function(error, results, fields) {
+    connection.query(sql, [{ name, image_url, description }, id], function(error, results, fields) {
       callback(error, results);
     });
   },
