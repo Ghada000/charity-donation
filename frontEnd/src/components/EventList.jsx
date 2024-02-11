@@ -1,18 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Modal, Button } from 'react-bootstrap';
 
 const EventList = ({ onViewDetails }) => {
   const [events, setEvents] = useState([]);
-  const [newEvent, setNewEvent] = useState({ title: '', image: '' });
+  const [newEvent, setNewEvent] = useState({ title: '', image: '', description: '', date: '', location: '',image:' '});
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     fetchEvents();
   }, []);
 
+  const handleClose = () => {
+    setShowModal(false);
+  };
+
+  const handleShow = () => {
+    setShowModal(true);
+  };
+
   const fetchEvents = () => {
     fetch('http://localhost:5000/event/getall')
       .then(response => response.json())
-      .then(data => setEvents(data));
+      .then(data => setEvents(data))
+      .catch(error => console.error('Error fetching events:', error));
   };
 
   const handleDelete = (eventId) => {
@@ -21,9 +32,10 @@ const EventList = ({ onViewDetails }) => {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data); // Log the response
-        fetchEvents(); // Update the events after deletion
-      });
+        console.log(data);
+        fetchEvents();
+      })
+      .catch(error => console.error('Error deleting event:', error));
   };
 
   const handleUpdate = (eventId, updatedEvent) => {
@@ -36,12 +48,21 @@ const EventList = ({ onViewDetails }) => {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data); // Log the response
-        fetchEvents(); // Update the events after updating
-      });
+        console.log(data);
+        fetchEvents();
+      })
+      .catch(error => console.error('Error updating event:', error));
   };
 
   const handleAdd = () => {
+    // Check if all required fields are provided
+    if (!newEvent.title || !newEvent.image || !newEvent.description || !newEvent.date || !newEvent.location) {
+      console.error('All fields (title, image, description, date, location) are required for adding an event');
+      return;
+    }
+  
+    console.log('Adding event:', newEvent);
+  
     fetch('http://localhost:5000/event/add', {
       method: 'POST',
       headers: {
@@ -49,41 +70,85 @@ const EventList = ({ onViewDetails }) => {
       },
       body: JSON.stringify(newEvent),
     })
-      .then(response => response.json())
+      .then(response => {
+        console.log('Response status:', response.status);
+        return response.json();
+      })
       .then(data => {
-        console.log(data); // Log the response
-        setNewEvent({ title: '', image: '' }); // Clear the new event form
-        fetchEvents(); // Update the events after adding
+        console.log('Server response:', data);
+        setNewEvent({ title: '', image: '', description: '', date: '', location: '' });
+        fetchEvents();
+        handleClose();
+      })
+      .catch(error => {
+        console.error('Error adding event:', error.message);
       });
   };
 
   return (
     <div>
       <div className="mb-3">
-        <h3>Add New Event</h3>
-        <div className="form-group">
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="title"
-            value={newEvent.title}
-            onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="image">Image URL:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="image"
-            value={newEvent.image}
-            onChange={(e) => setNewEvent({ ...newEvent, image: e.target.value })}
-          />
-        </div>
-        <button className="btn btn-primary" onClick={handleAdd}>
-          Add Event
-        </button>
+        <button className="btn btn-primary" onClick={handleShow}> Add Event</button>
+        <Modal show={showModal} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add New Event</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {/* Form inside the modal */}
+            <div className="form-group">
+              <label htmlFor="modalTitle">Title:</label>
+              <input
+                type="text"
+                className="form-control"
+                id="modalTitle"
+                value={newEvent.title}
+                onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
+              />
+                <label htmlFor="modalTitle">description:</label>
+              <input
+                type="text"
+                className="form-control"
+                id="modalTitle"
+                value={newEvent.description}
+                onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
+              />
+              <label htmlFor="modalTitle">date:</label>
+               <input
+                type="text"
+                className="form-control"
+                id="modalTitle"
+                value={newEvent.date}
+                onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
+              />
+              <label htmlFor="modalTitle">location:</label>
+               <input
+                type="text"
+                className="form-control"
+                id="modalTitle"
+                value={newEvent.location}
+                onChange={(e) => setNewEvent({ ...newEvent, location: e.target.value })}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="modalImage">Image URL:</label>
+              <input
+                type="text"
+                className="form-control"
+                id="modalImage"
+                value={newEvent.image}
+                onChange={(e) => setNewEvent({ ...newEvent, image: e.target.value })}
+              />
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={() => { handleAdd(); }}>
+              Add Event
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
 
       <div className="row">
@@ -125,6 +190,3 @@ const EventList = ({ onViewDetails }) => {
 };
 
 export default EventList;
-
-
-
