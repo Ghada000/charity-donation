@@ -6,7 +6,9 @@ function Clothes() {
   const [data, setData] = useState([]);
   const [name, setName] = useState('');
   const [image_url, setImage_url] = useState('');
-  const [description, setDescription] = useState('');
+  const [size, setSize] = useState(''); // Added size state
+  const [gender, setGender] = useState(''); // Added gender state
+  const [season, setSeason] = useState(''); // Added season state
   const [input, setInput] = useState(false);
   const [editingId, setEditingId] = useState(null);
 
@@ -38,37 +40,44 @@ function Clothes() {
     const selectedClothes = data.find(item => item.id === id);
     setName(selectedClothes.name);
     setImage_url(selectedClothes.image_url);
-    setDescription(selectedClothes.description);
+    setSize(selectedClothes.size); // Added size state
+    setGender(selectedClothes.gender); // Added gender state
+    setSeason(selectedClothes.season); // Added season state
   };
 
-  const handleUpdate = (id) => {
-    axios.put(`http://localhost:5000/clothes/${id}`, {
-      name: name,
-      image_url: image_url,
-      description: description,
-    })
-      .then((response) => {
-        const updatedData = data.map(item => {
-          if (item.id === id) {
-            return response.data; 
-          }
-          return item;
-        });
-        setData(updatedData);
-        setEditingId(null);
-        setImage_url('');
-        setName('');
-        setDescription('');
-      })
-      .catch(err => console.log(err));
+  const handleUpdate = async (id) => {
+    try {
+      const response = await axios.put(`http://localhost:5000/clothes/${id}`, {
+        name: name,
+        image_url: image_url,
+        size: size,
+        gender: gender,
+        season: season,
+      });
+      const updatedData = data.map(item => {
+        if (item.id === id) {
+          return response.data; 
+        }
+        return item;
+      });
+      setData(updatedData);
+      setEditingId(null);
+      setImage_url('');
+      setName('');
+      setSize('');
+      setGender('');
+      setSeason('');
+    } catch (error) {
+      console.error('Error updating data:', error);
+    }
   };
-  
-
   const handleAdd = () => {
     const newClothes = {
       name: name,
       image_url: image_url,
-      description: description,
+      size: size, // Added size field
+      gender: gender, // Added gender field
+      season: season, // Added season field
     };
 
     axios.post('http://localhost:5000/clothes/add', newClothes)
@@ -78,14 +87,16 @@ function Clothes() {
         // Reset form fields
         setName('');
         setImage_url('');
-        setDescription('');
+        setSize('');
+        setGender('');
+        setSeason('');
       })
       .catch(error => {
         console.log(error);
       });
   };
 
-  const isFormValid = name && image_url && description;
+  const isFormValid = name && image_url &&  size && gender && season;
 
   return (
     <div className="clothes-container">
@@ -96,7 +107,9 @@ function Clothes() {
             <img src={item.image_url} alt={`Clothes ${item.id}`} />
             <div className="details">
               <h2 className="name">{item.name}</h2>
-              <p className="description">Description: {item.description}</p>
+              <p className="size">Size: {item.size}</p>
+              <p className="gender">Gender: {item.gender}</p>
+              <p className="season">Season: {item.season}</p>
               <div className="buttons">
                 <button className="update-btn" onClick={() => handleUpdateClick(item.id)}>Edit</button>
                 <button className="delete-btn" onClick={() => handleDelete(item.id)}>Delete</button>
@@ -106,7 +119,9 @@ function Clothes() {
               <div className="edit-form">
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
                 <input type="text" value={image_url} onChange={(e) => setImage_url(e.target.value)} />
-                <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+                <input type="text" value={size} onChange={(e) => setSize(e.target.value)} />
+                <input type="text" value={gender} onChange={(e) => setGender(e.target.value)} />
+                <input type="text" value={season} onChange={(e) => setSeason(e.target.value)} />
                 <button onClick={() => handleUpdate(item.id)}>Update</button>
               </div>
             )}
@@ -127,10 +142,21 @@ function Clothes() {
               value={image_url}
               onChange={(event) => setImage_url(event.target.value)}
             />
+           
             <input
-              placeholder="Description"
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
+              placeholder="Size"
+              value={size}
+              onChange={(event) => setSize(event.target.value)}
+            />
+            <input
+              placeholder="Gender"
+              value={gender}
+              onChange={(event) => setGender(event.target.value)}
+            />
+            <input
+              placeholder="Season"
+              value={season}
+              onChange={(event) => setSeason(event.target.value)}
             />
             <button className="add-btn" onClick={handleAdd} disabled={!isFormValid}>Add</button>
           </div>

@@ -1,10 +1,11 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../App.css'
+import '../App.css';
+import ReactPlayer from 'react-player';
 
 function Hair() {
     const [data, setData] = useState([]);
+    const [clickedPicture, setClickedPicture] = useState(null);
 
     useEffect(() => {
         fetchData();
@@ -20,9 +21,7 @@ function Hair() {
             });
     }
 
-    const [clickedPicture, setClickedPicture] = useState(null);
-
-    const handlePictureClick = (title, description) => {
+    const handlePictureClick = (title) => {
         if (clickedPicture === title) {
             setClickedPicture(null);
         } else {
@@ -39,20 +38,19 @@ function Hair() {
                 <div key={item.donation_id} className='step-container'>
                     <h3 className='video'>{item.video_description}</h3>
                     <div className='video-container'>
-                        <iframe 
-                            className='video-iframe'
-                            src={item.video_url.replace("watch?v=", "embed/")}
-                            title="Hair Donation Video" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowFullScreen
-                        ></iframe>
+                        <ReactPlayer
+                            url={item.video_url.replace("watch?v=", "embed/")}
+                            controls={true}
+                            width='100%'
+                            height='100%'
+                        />
                     </div>
                     <div className='step'>
                         <p className='par'>Step 1</p>
-                        <img 
-                            className='image' 
-                            src={item.picture1_image_url} 
-                            alt={item.picture1_title} 
+                        <img
+                            className='image'
+                            src={item.picture1_image_url}
+                            alt={item.picture1_title}
                             onClick={() => handlePictureClick(item.picture1_title)}
                         />
                         {clickedPicture === item.picture1_title && (
@@ -63,10 +61,10 @@ function Hair() {
                     </div>
                     <div className='step'>
                         <p className='par'>Step 2</p>
-                        <img 
-                            className='image' 
-                            src={item.picture2_image_url} 
-                            alt={item.picture2_title} 
+                        <img
+                            className='image'
+                            src={item.picture2_image_url}
+                            alt={item.picture2_title}
                             onClick={() => handlePictureClick(item.picture2_title)}
                         />
                         {clickedPicture === item.picture2_title && (
@@ -76,11 +74,11 @@ function Hair() {
                         )}
                     </div>
                     <div className='step'>
-                        <p className='par'>Step 3 </p>
-                        <img 
-                            className='image' 
-                            src={item.picture3_image_url} 
-                            alt={item.picture3_title} 
+                        <p className='par'>Step 3</p>
+                        <img
+                            className='image'
+                            src={item.picture3_image_url}
+                            alt={item.picture3_title}
                             onClick={() => handlePictureClick(item.picture3_title)}
                         />
                         {clickedPicture === item.picture3_title && (
@@ -91,10 +89,10 @@ function Hair() {
                     </div>
                     <div className='step'>
                         <p className='par'>Step 4</p>
-                        <img 
-                            className='image' 
-                            src={item.picture4_image_url} 
-                            alt={item.picture4_title} 
+                        <img
+                            className='image'
+                            src={item.picture4_image_url}
+                            alt={item.picture4_title}
                             onClick={() => handlePictureClick(item.picture4_title)}
                         />
                         {clickedPicture === item.picture4_title && (
