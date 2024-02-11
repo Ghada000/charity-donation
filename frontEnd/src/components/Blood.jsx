@@ -31,10 +31,8 @@ function Blood() {
         .then(function (response) {
             console.log(response);
             fetchData();
-            // Reset form fields
             setNewBloodType('');
             setNewImageUrl('');
-            // Close the modal
             setShowModal(false);
         })
         .catch(function (error) {

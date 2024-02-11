@@ -32,19 +32,46 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
+-- Table `donation`.`children`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `donation`.`children` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `image_url` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 13
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
 -- Table `donation`.`clothes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `donation`.`clothes` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `image_url` VARCHAR(255) NULL DEFAULT NULL,
   `name` VARCHAR(255) NULL DEFAULT NULL,
-  `size` ENUM('XS', 'S', 'M', 'L', 'XL', 'XXL') NULL DEFAULT NULL,
+  `description` VARCHAR(2000) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
+
+-- -----------------------------------------------------
+-- Table `donation`.`donations`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `donation`.`donations` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `amount` DECIMAL(10,2) NOT NULL,
+  `donor_name` VARCHAR(255) NULL DEFAULT NULL,
+  `donation_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 30
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -54,12 +81,12 @@ CREATE TABLE IF NOT EXISTS `donation`.`events` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(255) NOT NULL,
   `description` TEXT NULL DEFAULT NULL,
-  `date` DATE NULL DEFAULT NULL,
+  `date` VARCHAR(255) NOT NULL,
   `location` VARCHAR(255) NULL DEFAULT NULL,
   `image` VARCHAR(2000) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
+AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -104,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `donation`.`medicaments` (
   `description` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 20
+AUTO_INCREMENT = 32
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
