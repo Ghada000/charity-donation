@@ -67,7 +67,7 @@ Despite the significant progress made in Tunisia concerning childrens health, it
       <br />
       <button onClick={uploadImage} className='btn btn-primary m-3'>Upload!</button>
 
-      {url && <img src={url} alt="Uploaded" />} {/* Render the image if URL is not empty */}
+      {/* {url && <img src={url} alt="Uploaded" />}  */}
 
       
       <div className='container-img'>
