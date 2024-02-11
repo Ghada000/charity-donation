@@ -59,7 +59,7 @@ function Blood() {
         <div className="card-body">
             <h1 className="card-title">{item.blood_type}</h1>
             <img src={item.image_url} alt={item.blood_type} className="img-fluid mb-3" />
-            <button className="btn btn-danger" onClick={() => handleDeleteBlood(item.id)}>Delete</button>
+            <button className="btnbtn-danger" onClick={() => handleDeleteBlood(item.id)}>Delete</button>
         </div>
     </div>
 ))}

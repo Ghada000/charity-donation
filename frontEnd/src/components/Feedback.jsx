@@ -13,7 +13,7 @@ function Popup({
     return (
         <div className="overlay">
             <div className="popup  " onClick={(e) => e.stopPropagation()}>
-                <h2 className="text-center p-2 ">Add a Review</h2>
+                <h2 className="text-center ">Add a Review</h2>
                 <form className="row">
                     <label  htmlFor="user" className="row">
                         <span className="col-3">User:</span>
